@@ -11,4 +11,128 @@ body {
     padding: 0px;
 }
 
+/*--------------------------------------------------Navbar*/
+.navbar {
+    background-color: #2e837a;
+}
 
+.navbar-brand {
+    color: antiquewhite;
+}
+
+.nav-link {
+    color: antiquewhite;
+}
+
+/*--------------------------------------------------Jumbotron Header*/
+
+/*Hero Image*/
+.container-jumbotron {
+    background-image: url(../images/jumbotron/home.jpg);
+    background-image: no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+
+/*Opacity*/
+.container-jumbotron::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/*Jumbotron h1*/
+.jumbotron-header {
+    font-family: 'Poppins', sans-serif;
+    color: antiquewhite;
+    text-align: center;
+    font-size: 35px;
+    margin: 75px 0px 0px;
+}
+
+
+/*Jumbotron text content*/
+.jumbotron-text {
+    color: antiquewhite;
+    text-align: justify;
+    
+}
+
+/*Sign Up Button*/
+.btn {
+    background-color: #2e837a;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
+    width: 200px;
+    margin-top: 30px;  
+    margin-bottom: 50px;
+}
+
+.signup {
+    text-align: center;
+}
+
+/*--------------------------------------------------Media Queries min-width 576px*/
+/*Jumbotron*/
+@media screen and (min-width: 578px) {
+.jumbotron-header {
+    font-size: 70px;
+    margin-top: 60px;
+}
+
+/*Sign Up Button*/
+.btn-signup {
+    margin: 20px 0px 50px;
+    width: 300px;
+}
+
+}
+
+
+/*--------------------------------------------------Media Queries min-width 768px*/
+
+
+
+/*--------------------------------------------------Media Queries min-width 992px*/
+
+
+
+/*--------------------------------------------------Media Queries min-width 1200px*/
+/*Jumbotron*/
+@media screen and (min-width: 1200px) {
+.container-jumbotron {
+    height: 85vh;
+}
+
+.jumbotron-header {
+    font-size: 70px;
+    margin-top: 80px;
+    margin-left: 30px;
+    text-align: left;
+}
+
+.btn-signup {
+    margin: 20px 0px 50px;
+    width: 300px;
+}
+
+.signup {
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 35px;
+}
+
+ /*Jumbotron text content*/
+.jumbotron-text {
+    margin-left: 25px;
+}
+
+
+}
