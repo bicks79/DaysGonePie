@@ -19,6 +19,7 @@ body {
 
 .navbar-brand {
     color: antiquewhite;
+    font-weight: bold;
 }
 
 .navbar-brand:hover {
@@ -95,6 +96,7 @@ body {
     width: 200px;
     margin-top: 30px;  
     margin-bottom: 50px;
+    text-transform: uppercase;
 }
 
 .signup {
@@ -112,6 +114,64 @@ body {
 /*Page Features*/
 .card-body .card-title {
     font-family: 'Poppins', sans-serif;
+    color: antiquewhite;
+}
+
+.card-img-top {
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+.card-body {
+    background-color: #2e837a;
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+.card-text {
+    color: antiquewhite;
+}
+
+.card-footer {
+    background-color: #2e837a;
+    border: 1px solid black;
+    border-top: none;
+}
+
+.btn-recipe {
+    width: 200px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+
+/*--------------------------------------------------Footer*/
+.footer {
+    color: antiquewhite;
+    background-color: #2e837a;
+    border-top: 2px solid antiquewhite;
+
+}
+
+/*--------------------------------------------------Jumbotron Recipes*/
+.searchbox-recipes {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.form-inline {
+    justify-content: center;
+}
+
+.btn-search {
+    margin-top: 20px;
+}
+
+/*--------------------------------------------------Features text*/
+/*featurette*/
+.featurette {
+    text-align: justify;
+    margin: 0 auto;
 }
 
 /*--------------------------------------------------Media Queries min-width 576px*/
@@ -136,6 +196,11 @@ body {
 @media screen and (min-width: 768px) {
 #navbarResponsive {
     text-align: right;
+}
+
+/*Jumbotron Recipes*/
+.btn-search {
+    margin-top: 0px;
 }
 
 }
@@ -168,6 +233,17 @@ body {
 
  /*Jumbotron text content*/
 .jumbotron-text {
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.btn-recipe {
+    width: 150px;
+}
+
+/*Jumbotron Recipe*/
+.form-inline {
+    justify-content: left;
     margin-left: 25px;
 }
 
