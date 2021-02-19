@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f07371f622.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/heroic-features.css') }}">
     <title>Days Gone Pie</title>
@@ -11,9 +12,12 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container container-navbar">
-        <a class="navbar-brand" href="#">Days Gone Pie</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="{{ url_for('index') }}">Days Gone Pie</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="fas fa-bars"></i>
+            </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
@@ -33,98 +37,100 @@
  
 
 <!-- Jumbotron -->
-    <div class="container-fluid container-jumbotron">
+<div class="container-fluid container-jumbotron">
 
-        <div class="row">
-            <div class="col-12 col-md-m6 my-4">
-                <h1 class="jumbotron-header">Welcome, bakers!</h1>
-            </div>  
-            <div class="col-12 jumbotron-content">
-                <p class="jumbotron-text col-12 col-lg-6">
-                    Days gone pie is the recipe site here to help you become the star baker of your own kitchen! 
-                    Every recipe is provided by the community, so you know that each one has been tested and 
-                    approved by friends and family all over the world! From beautiful breads to delicious desserts. 
-                    Colourful cakes to perfect pastry, there's a recipe here to suit every occasion.  
-                    It doesn't matter if your a budding novice, or a skilled baker, days gone pie has something for everyone.
-                    So, why not sign up now and start showcasing your baking talent!
-                </p>
-                <div class="signup">
-                    <button class="btn btn-primary btn-lg btn-signup"><strong>Sign Up!</strong></button>
-                </div>
+    <div class="row">
+        <div class="col-12 col-md-m6 my-4">
+            <h1 class="jumbotron-header">Welcome, bakers!</h1>
+        </div>  
+        <div class="col-12 jumbotron-content">
+            <p class="jumbotron-text col-12 col-lg-6">
+                Days gone pie is the recipe site here to help you become the star baker of your own kitchen! 
+                Every recipe is provided by the community, so you know that each one has been tested and 
+                approved by friends and family all over the world! From beautiful breads to delicious desserts. 
+                Colourful cakes to perfect pastry, there's a recipe here to suit every occasion.  
+                It doesn't matter if your a budding novice, or a skilled baker, days gone pie has something for everyone.
+                So, why not sign up now and start showcasing your baking talent!
+            </p>
+            <div class="signup">
+                <button class="btn btn-lg btn-signup"><strong>Sign Up!</strong></button>
             </div>
         </div>
     </div>
+</div>
+
 <!-- Page Content -->
 <div class="container container-fluid container-home"> 
-<!-- Page Features -->
+
+    <!-- Page Features -->
+    <div class="row features-header">
+        <h2 class="col-12 recipes-header">Recipes</h2>
+    </div>    
     <div class="row text-center">
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/recipe-categories/bread.png') }}" alt="bread">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, 
-                        consectetur adipisicing elit. 
-                        Sapiente esse necessitatibus neque.
+                    <h4 class="card-title">Bread</h4>
+                    <p class="card-text">You can guarantee that these bread recipes will want you <strong>kneading</strong> more!
                     </p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                    <a href="#" class="btn btn-sm btn-recipe">Go to recipes!</a>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/recipe-categories/cake.png') }}" alt="cake">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                        Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.
+                    <h4 class="card-title">Cake</h4>
+                    <p class="card-text">The right cake can make any occasion feel extra special, 
+                    and who doesn't like a good slice of cake?
                     </p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                    <a href="#" class="btn btn-sm btn-recipe">Go to recipes!</a>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/recipe-categories/dessert.png') }}" alt="dessert">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, 
-                        consectetur adipisicing elit. 
-                        Sapiente esse necessitatibus neque.
+                    <h4 class="card-title">Dessert</h4>
+                    <p class="card-text">This collection of stunning desserts will 
+                    be hard to resist, but totally worth the calories! 
                     </p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                    <a href="#" class="btn btn-sm btn-recipe">Go to recipes!</a>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-100">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                <img class="card-img-top" src="{{ url_for('static', filename='images/recipe-categories/pastry.png') }}" alt="pastry">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                        Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.
+                    <h4 class="card-title">Dessert</h4>
+                    <p class="card-text">From perfectly puffed pies to delicate french patisserie, 
+                    they'll be no soggy bottoms with these amazing recipes! 
                     </p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                    <a href="#" class="btn btn-sm btn-recipe">Go to recipes!</a>
                 </div>
             </div>
         </div>
 
     </div>
-    <!-- /.row -->
+    <!-- /.Page Features -->
 
 </div>
-<!-- /.container -->
+<!-- /.Page Content -->
 
 <!-- Footer -->
 <footer class="py-5 bg-dark">

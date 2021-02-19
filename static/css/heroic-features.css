@@ -14,14 +14,32 @@ body {
 /*--------------------------------------------------Navbar*/
 .navbar {
     background-color: #2e837a;
+    border-bottom: 2px solid antiquewhite;
 }
 
 .navbar-brand {
     color: antiquewhite;
 }
 
+.navbar-brand:hover {
+    color: black;
+}
+
 .nav-link {
     color: antiquewhite;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+.navbar-toggler-icon {
+    display: inline;
+    color: antiquewhite;
+}
+
+#navbarResponsive {
+    text-align: center;
 }
 
 /*--------------------------------------------------Jumbotron Header*/
@@ -67,9 +85,13 @@ body {
 
 /*Sign Up Button*/
 .btn {
+    color: antiquewhite;
     background-color: #2e837a;
     border: 2px solid antiquewhite;
     border-radius: 5px;
+}
+
+.btn-signup {
     width: 200px;
     margin-top: 30px;  
     margin-bottom: 50px;
@@ -77,6 +99,19 @@ body {
 
 .signup {
     text-align: center;
+}
+
+/*--------------------------------------------------Page Content - Home Page*/
+/*Features Header*/
+.recipes-header {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 30px 0px;
+}
+
+/*Page Features*/
+.card-body .card-title {
+    font-family: 'Poppins', sans-serif;
 }
 
 /*--------------------------------------------------Media Queries min-width 576px*/
@@ -97,18 +132,20 @@ body {
 
 
 /*--------------------------------------------------Media Queries min-width 768px*/
+/*Navbar*/
+@media screen and (min-width: 768px) {
+#navbarResponsive {
+    text-align: right;
+}
 
+}
 
 
 /*--------------------------------------------------Media Queries min-width 992px*/
-
-
-
-/*--------------------------------------------------Media Queries min-width 1200px*/
 /*Jumbotron*/
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 992px) {
 .container-jumbotron {
-    height: 85vh;
+    height: 50vh;
 }
 
 .jumbotron-header {
@@ -132,6 +169,15 @@ body {
  /*Jumbotron text content*/
 .jumbotron-text {
     margin-left: 25px;
+}
+
+}
+
+/*--------------------------------------------------Media Queries min-width 1200px*/
+/*Jumbotron*/
+@media screen and (min-width: 1200px) {
+.container-jumbotron {
+    height: 85vh;
 }
 
 
