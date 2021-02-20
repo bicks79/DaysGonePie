@@ -16,7 +16,6 @@ def index():
 
 @app.route("/recipes")  # recipes.html route decorator
 def recipes():
-    data = []
     return render_template("recipes.html", page_title="Recipes")
 
 
