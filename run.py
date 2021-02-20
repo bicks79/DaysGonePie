@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template
 
 
@@ -7,11 +8,15 @@ app = Flask(__name__)
 
 @app.route("/")  # index.html route decorator
 def index():
-    return render_template("index.html")
+    data = []
+    with open("data/card.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("index.html", card=data)
 
 
 @app.route("/recipes")  # recipes.html route decorator
 def recipes():
+    data = []
     return render_template("recipes.html", page_title="Recipes")
 
 
