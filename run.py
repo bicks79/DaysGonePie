@@ -1,11 +1,22 @@
 import os
 import json
-from flask import Flask, render_template
+from flask import (
+    Flask, flash, render_template, redirect, request, session, url_for)
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
 
 
 app = Flask(__name__)
+
+
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.special_ingredient = os.environ.get("SPECIAL_INGREDIENT")
+
+
+mongo = PyMongo(app)
 
 
 @app.route("/")  # index.html route decorator
@@ -18,7 +29,9 @@ def index():
 
 @app.route("/recipes")  # recipes.html route decorator
 def recipes():
-    return render_template("recipes.html", page_title="Recipes")
+    recipes = mongo.db.recipes.find()
+    return render_template(
+        "recipes.html", page_title="Recipes", recipes=recipes)
 
 
 @app.route("/feature")  # feature.html route decorator

@@ -167,6 +167,11 @@ body {
     margin-top: 20px;
 }
 
+/*--------------------------------------------------Recipes Content*/
+.recipe-list {
+    color: black;
+}
+
 /*--------------------------------------------------Features text*/
 /*featurette*/
 .featurette {

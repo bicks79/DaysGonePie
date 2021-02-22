@@ -34,6 +34,12 @@
     <div class="row features-header">
         <h2 class="col-12 recipes-header">Bread</h2>
     </div>
+        <div class="row recipe-list">
+        {% for recipe in dgp_recipes %}
+            {{reicpe.title}}
+        {% endfor %}
+        </div>
+    
     <!-- Cake -->
     <div class="row features-header">
         <h2 class="col-12 recipes-header">Cake</h2>
