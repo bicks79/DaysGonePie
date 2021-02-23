@@ -29,9 +29,16 @@ def index():
 
 @app.route("/recipes")  # recipes.html route decorator
 def recipes():
-    recipes = mongo.db.recipes.find()
+    bread_recipes = mongo.db.bread.find()
+    cake_recipes = mongo.db.cakes.find()
+    dessert_recipes = mongo.db.desserts.find()
+    pastry_recipes = mongo.db.pastry.find()
     return render_template(
-        "recipes.html", page_title="Recipes", recipes=recipes)
+        "recipes.html", page_title="Recipes",
+        bread_recipes=bread_recipes,
+        cake_recipes=cake_recipes,
+        dessert_recipes=dessert_recipes,
+        pastry_recipes=pastry_recipes)
 
 
 @app.route("/feature")  # feature.html route decorator
