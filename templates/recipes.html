@@ -32,12 +32,12 @@
     <!-- Page Features -->
     <!-- Bread -->
     <div class="row features-header">
-        <h2 id="bread" class="col-12 recipes-header">Bread</h2>
+        <h2 id="bread" class="col-12 recipes-header" >Bread</h2>
     </div>
     <div class="row text-center recipe-list">
         <div class="col-12">
         {% for recipe in bread_recipes %}
-            <a href="#"><h4>{{ recipe.title }}</h4></a>
+            <a href="{{ url_for('recipe_card') }}"><h4>{{ recipe.title }}</h4></a>
             <p>{{ recipe.desc }}</p>
             <br>
         {% endfor %}
@@ -51,7 +51,7 @@
     <div class="row text-center recipe-list">
         <div class="col-12">
         {% for recipe in cake_recipes %}
-            <a href="#"><h4>{{ recipe.title }}</h4></a>
+            <a href="{{ url_for('recipe_card') }}"><h4>{{ recipe.title }}</h4></a>
             <p>{{ recipe.desc }}</p>
             <br>
         {% endfor %}
@@ -64,7 +64,7 @@
     <div class="row text-center recipe-list">
         <div class="col-12">
         {% for recipe in dessert_recipes %}
-            <a href="#"><h4>{{ recipe.title }}</h4></a>
+            <a href="{{ url_for('recipe_card') }}"><h4>{{ recipe.title }}</h4></a>
             <p>{{ recipe.desc }}</p>
             <br>
         {% endfor %}
@@ -77,7 +77,7 @@
     <div class="row text-center recipe-list">
         <div class="col-12">
         {% for recipe in pastry_recipes %}
-            <a href="#"><h4>{{ recipe.title }}</h4></a>
+            <a href="{{ url_for('recipe_card') }}"><h4>{{ recipe.title }}</h4></a>
             <p>{{ recipe.desc }}</p>
             <br>
         {% endfor %}

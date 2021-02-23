@@ -1,4 +1,24 @@
 {% extends "base.html" %}
 {% block content_recipes %}
-    <h2>{{page_title}}</h2>
+<div class="container container-login">
+    <div class="row">
+        <h2 class="col-12 login-header"><i class="fas fa-user"></i>  Login/Register</h2>
+    </div>
+
+    <form>
+        <div class="mb-3">
+            <label for="email" class="col-12 col-md-8 offset-md-2 form-label email-header"><i class="fas fa-envelope"></i>  Email address</label>
+            <input type="email" class="col-12 col-md-8 offset-md-2 form-email" id="email" name="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class=" d-none d-md-block form-text text-muted">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="col-12 col-md-8 offset-md-2 form-label password-header"><i class="fas fa-key"></i>  Password</label>
+            <input type="password" class=" col-12 col-md-8 offset-md-2 form-password" id="password" name="password">
+        </div>
+        <div class="btn-form col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
 {% endblock %}

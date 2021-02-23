@@ -1,9 +1,10 @@
 import os
 import json
-from flask import (
+from flask import(
     Flask, flash, render_template, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -41,12 +42,17 @@ def recipes():
         pastry_recipes=pastry_recipes)
 
 
+@app.route("/recipe_card")  # recipe_card.html route decorator
+def recipe_card():
+    return render_template("recipe_card.html", page_title="Recipe Card")
+
+
 @app.route("/feature")  # feature.html route decorator
 def feature():
     return render_template("feature.html", page_title="Feature")
 
 
-@app.route("/login")  # feature.html route decorator
+@app.route("/login", methods=["GET", "POST"])  # feature.html route decorator
 def login():
     return render_template("login.html", page_title="Login")
 
