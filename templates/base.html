@@ -28,22 +28,44 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('recipes') }}">Recipes</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('feature') }}">Feature</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('register') }}">Register</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-{% block content_home %}
-{% endblock %}
+<!-- Flash Messages -->
+<section>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <h4 class="text-center flash-message">{{message}}</h4>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</section>
+
+<main>
+    {% block content_home %}
+    {% endblock %}
 
 
-{% block content_recipes %}
-{%  endblock %}
+    {% block content_recipes %}
+    {%  endblock %}
 
 
-{% block content_recipe_card %}
-{%  endblock %}
+    {% block content_recipe_card %}
+    {%  endblock %}
+
+
+    {% block content_register %}
+    {% endblock %}
+
+
+    {% block content_login %}
+    {% endblock %}
+</main>
 
 <!-- Footer -->
 <footer class="py-5 footer">

@@ -1,6 +1,6 @@
 import os
 import json
-from flask import(
+from flask import (
     Flask, flash, render_template, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -52,7 +52,29 @@ def feature():
     return render_template("feature.html", page_title="Feature")
 
 
-@app.route("/login", methods=["GET", "POST"])  # feature.html route decorator
+@app.route(
+    "/register", methods=["GET", "POST"])  # register.html route decorator
+def register():
+    if request.method == "POST":   # Check if username already exists
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username already exists, please try again.")
+            return redirect(url_for("login"))
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        # user enters 'session' cookie
+        mongo.db.users.insert_one(register)
+        session["user"] = request.form.get("username").lower()
+        flash("login successful.")
+    return render_template("register.html", page_title="Register")
+
+
+@app.route("/login")  # login.html route decorator
 def login():
     return render_template("login.html", page_title="Login")
 

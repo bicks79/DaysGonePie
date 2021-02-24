@@ -1,19 +1,20 @@
 {% extends "base.html" %}
-{% block content_login %}
-<!-- Jumbotron Login -->
-<div class="container-fluid container-jumbotron container-login">
+{% block content_register %}
+<!-- Jumbotron Register -->
+<div class="container-fluid container-jumbotron container-register">
 
     <div class="row">
         <div class="col-12 col-md-m6 my-4">
-            <h1 class="jumbotron-header jumbotron-login"><i class="fas fa-user"></i>  Login</h1>
+            <h1 class="jumbotron-header jumbotron-register"><i class="fas fa-user-plus"></i>  Register</h1>
         </div>  
         <div class="col-12 jumbotron-content">
-            <p class="jumbotron-text login-text col-12 col-lg-6">
-                Welcome back! Sign in and bake something wonderful!
+            <p class="jumbotron-text col-12 col-lg-6">
+                Registering for Days Gone Pie not only gives you access to all the great recipes we have,
+                it also allows you to share your own fabulous bakes with the community, so they can share 
+                your amazing creation with their friends and family.  It only takes a minute and then you
+                can get back to the important things in life, baking!  
             </p>
         </div>
-
-        <!-- Login Form -->
         <form>
         <div class="mb-3">
             <label for="username" class="col-12 form-label offset-md-1 offset-lg-2 username-header"><i class="fas fa-user-tag"></i>  username</label>
@@ -29,4 +30,6 @@
     </form>
     </div>
 </div>
+
+
 {% endblock %}
