@@ -74,8 +74,28 @@ def register():
     return render_template("register.html", page_title="Register")
 
 
-@app.route("/login")  # login.html route decorator
+@app.route("/login", methods=["GET", "POST"])  # login.html route decorator
 def login():
+    if request.method == "POST":
+        # checking for user in database
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # check password match
+            if check_password_hash(
+               existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("password").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+            else:
+                # invalid password
+                flash("Incorrect Username/Password, please try again.")
+                return redirect(url_for('login'))
+        else:
+            # username does not exist
+            flash("Incorrect Username/Password.")
+            return redirect(url_for('login'))
+
     return render_template("login.html", page_title="Login")
 
 

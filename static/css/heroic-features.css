@@ -12,9 +12,8 @@ body {
 }
 /*--------------------------------------------------Flash Messages*/
 .flash-message {
-    margin-top: 50px;
-    color: antiquewhite;
-    background-color: #2e837a;
+    margin-top: 65px;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -201,6 +200,11 @@ body {
     color: antiquewhite;
 }
 
+.login-redirect{
+    text-align: center;
+    color: antiquewhite;
+    text-decoration: none;
+}
 
 
 /*--------------------------------------------------Login*/
@@ -236,6 +240,7 @@ body {
 .btn-login {
     text-transform: uppercase;
 }
+
 
 /*--------------------------------------------------Media Queries min-width 576px*/
 /*Jumbotron*/
