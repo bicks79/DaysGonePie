@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-app.special_ingredient = os.environ.get("SPECIAL_INGREDIENT")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
@@ -60,17 +60,17 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already exists, please try again.")
-            return redirect(url_for("login"))
+            flash("Username in use")
+            return redirect(url_for("register"))
 
-        register = {
+        register_user = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        # user enters 'session' cookie
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(register_user)
+
         session["user"] = request.form.get("username").lower()
-        flash("login successful.")
+        flash("Welcome to Days Gone Pie!")
     return render_template("register.html", page_title="Register")
 
 

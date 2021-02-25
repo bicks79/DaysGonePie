@@ -15,19 +15,21 @@
                 can get back to the important things in life, baking!  
             </p>
         </div>
-        <form>
-        <div class="mb-3">
-            <label for="username" class="col-12 form-label offset-md-1 offset-lg-2 username-header"><i class="fas fa-user-tag"></i>  username</label>
-            <input type="username" class="col-10 offset-1 offset-lg-2 form-username" id="username" name="username" placeholder="Username must be unique" aria-describedby="usernameHelp">
+        <div class="row">
+            <form method="POST" action="{{ url_for('register') }}">
+                <div class="mb-3">
+                    <label for="username" class="col-10 offset-1 offset-md-2 username-header"><i class="fas fa-user-tag"></i>  username</label>
+                    <input type="username" class="col-10 offset-1 offset-md-2 form-username" id="username" name="username" placeholder="username" aria-describedby="usernameHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="col-10 offset-1 offset-md-2 offset-lg-2 password-header"><i class="fas fa-key"></i>  Password</label>
+                    <input type="password" class="col-10 offset-1 offset-md-2 form-password" id="password" name="password" placeholder="password">
+                </div>
+                <div class="btn-form col-12 offset-md-2">
+                    <button type="submit" class="btn btn-login">Sign Up!</button>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="password" class="col-12 form-label offset-md-1 offset-lg-2 password-header"><i class="fas fa-key"></i>  Password</label>
-            <input type="password" class="col-10 offset-1 offset-lg-2 form-password" id="password" name="password" placeholder="password">
-        </div>
-        <div class="btn-form col-12 offset-md-1 offset-lg-2">
-            <button type="submit" class="btn btn-login">Sign Up!</button>
-        </div>
-    </form>
     </div>
 </div>
 

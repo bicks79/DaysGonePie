@@ -12,7 +12,9 @@ body {
 }
 /*--------------------------------------------------Flash Messages*/
 .flash-message {
-    margin-top: 100px;
+    margin-top: 50px;
+    color: antiquewhite;
+    background-color: #2e837a;
 }
 
 
@@ -198,6 +200,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: antiquewhite;
 }
+
 
 
 /*--------------------------------------------------Login*/
