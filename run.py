@@ -71,6 +71,7 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("Welcome to Days Gone Pie!")
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html", page_title="Register")
 
 
@@ -87,16 +88,37 @@ def login():
                existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("password").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid password
-                flash("Incorrect Username/Password, please try again.")
+                flash("Incorrect Username/Password.")
                 return redirect(url_for('login'))
         else:
             # username does not exist
             flash("Incorrect Username/Password.")
             return redirect(url_for('login'))
-
     return render_template("login.html", page_title="Login")
+
+
+# profile.html route decorator
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # return username from mongodb
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for('login'))
+
+
+@app.route("/logout")
+def logout():
+    # remove user from cookies
+    flash("You have been logged out.")
+    session.clear()
+    return redirect(url_for('login'))
 
 
 if __name__ == "__main__":

@@ -241,6 +241,11 @@ body {
     text-transform: uppercase;
 }
 
+/*--------------------------------------------------Profile*/
+.profile-header{
+    margin-top: 100px;
+}
+
 
 /*--------------------------------------------------Media Queries min-width 576px*/
 /*Jumbotron*/
