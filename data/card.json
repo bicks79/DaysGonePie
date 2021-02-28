@@ -2,7 +2,8 @@
     {
         "cardTitle": "Bread",
         "cardText": "You can guarantee that these bread recipes will want you kneading more!",
-        "cardImageTop": "../static/images/recipe-categories/bread.png"
+        "cardImageTop": "../static/images/recipe-categories/bread.png",
+        "recipeImage": "../static/images/recipes/petit_pains.jpg"
     },
     {
         "cardTitle": "Cake",

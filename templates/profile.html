@@ -2,12 +2,31 @@
 {% block content_profile %}
 
 
+<!-- Username profie header -->
 <div class="container container-fluid container-profile">
     <div class="row col-12">
-        <h3 class="profile-header">{{ username }}'s Kitchen</h3>
+        <h3 class="profile-header col-12">{{ username }}'s kitchen</h3>
     </div>
 </div>
 
+    
+<!-- Users Recipes -->
+<div class="accordion" id="userRecipes">
+    {% for recipe in bread_recipes %}
+    <div class="accordion-recipes">
+        <h3 class="accordion-header" id="recipes-category">
+            <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse-recipes"
+                aria-expanded="true" aria-controls="collapse-recipes">
+                Bread
+            </button>
+        </h3>
+        <div id="collapse-recipes" class="accordion-collapse collapse show" aria-labelledby="heading-recipes"
+            data-parent="#userRecipes">
+            <div class="accordion-body">
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
-    

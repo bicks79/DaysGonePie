@@ -174,11 +174,14 @@ body {
     margin-top: 20px;
 }
 
-/*--------------------------------------------------Recipe Card Content*/
-.recipe-card-title {
-    font-family: 'Poppins', sans-serif;
-    margin-top: 75px;
-    margin-bottom: 30px;
+/*Accordian*/
+.accordion-header {
+    text-align: center;
+}
+
+.accordion-button {
+    color: antiquewhite;
+    background-color: #2e837a;
 }
 
 /*--------------------------------------------------Features text*/
@@ -242,9 +245,11 @@ body {
 }
 
 /*--------------------------------------------------Profile*/
-.profile-header{
-    margin-top: 100px;
+.profile-header {
+    margin-top: 65px;
+    text-align: center;
 }
+
 
 
 /*--------------------------------------------------Media Queries min-width 576px*/

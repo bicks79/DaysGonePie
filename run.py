@@ -25,26 +25,21 @@ def index():
     data = []
     with open("data/card.json", "r") as json_data:
         data = json.load(json_data)
+    with open("data/recipeImage.json", "r") as json_data:
+        data = json.load(json_data)
     return render_template("index.html", card=data)
 
 
 @app.route("/recipes")  # recipes.html route decorator
 def recipes():
-    bread_recipes = mongo.db.bread.find()
-    cake_recipes = mongo.db.cakes.find()
-    dessert_recipes = mongo.db.desserts.find()
-    pastry_recipes = mongo.db.pastry.find()
+    recipes = mongo.db.recipes.find()
+    ingredients = mongo.db.ingredients.find()
+    method = mongo.db.method.find()
     return render_template(
         "recipes.html", page_title="Recipes",
-        bread_recipes=bread_recipes,
-        cake_recipes=cake_recipes,
-        dessert_recipes=dessert_recipes,
-        pastry_recipes=pastry_recipes)
-
-
-@app.route("/recipe_card")  # recipe_card.html route decorator
-def recipe_card():
-    return render_template("recipe_card.html", page_title="Recipe Card")
+        recipes=recipes,
+        ingredients=ingredients,
+        method=method)
 
 
 @app.route("/feature")  # feature.html route decorator
@@ -105,8 +100,7 @@ def login():
 def profile(username):
     # return username from mongodb
     username = mongo.db.users.find_one(
-        {"username": session["user"]})
-
+        {"username": session["user"]})["username"]
     if session["user"]:
         return render_template("profile.html", username=username)
 
