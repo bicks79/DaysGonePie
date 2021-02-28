@@ -1,5 +1,26 @@
 [
-    {
+    {     
         "recipeImage": "../static/images/recipes/petit_pains.jpg"
+    },
+    {
+         "recipeImage": "../static/images/recipes/ginger_cake.jpg"
+    }, 
+    {
+         "recipeImage": "../static/images/recipes/pavlova.jpg"
+    },
+    {   
+        "recipeImage": "../static/images/recipes/filo_pie.jpg"
+    },
+    {
+        "recipeImage": "../static/images/recipes/puff_pastry_tart.jpg"
+    },
+    {
+        "recipeImage": "../static/images/recipes/banana_rum_trifle.jpg"
+    },
+    {
+        "recipeImage": "../static/images/recipes/victoria_sponge.jpg"
+    },
+    {
+        "recipeImage": "../static/images/recipes/irish_soda_bread.jpg"
     }
 ]

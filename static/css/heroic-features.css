@@ -119,9 +119,10 @@ body {
 }
 
 /*Page Features*/
-.card-body .card-title {
+.card-title {
     font-family: 'Poppins', sans-serif;
     color: antiquewhite;
+    text-align: center;
 }
 
 .card-img-top {
@@ -137,6 +138,7 @@ body {
 
 .card-text {
     color: antiquewhite;
+    text-align: center;
 }
 
 .card-footer {
@@ -182,6 +184,20 @@ body {
 .accordion-button {
     color: antiquewhite;
     background-color: #2e837a;
+    width: 253px;
+    margin-bottom: 10px;
+}
+
+.card-recipe {
+    border-bottom: 1px solid black;
+}
+
+ol{
+    padding-left: 20px;
+}
+
+.method {
+    text-align: justify;
 }
 
 /*--------------------------------------------------Features text*/

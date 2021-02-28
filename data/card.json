@@ -2,8 +2,7 @@
     {
         "cardTitle": "Bread",
         "cardText": "You can guarantee that these bread recipes will want you kneading more!",
-        "cardImageTop": "../static/images/recipe-categories/bread.png",
-        "recipeImage": "../static/images/recipes/petit_pains.jpg"
+        "cardImageTop": "../static/images/recipe-categories/bread.png"
     },
     {
         "cardTitle": "Cake",
@@ -15,7 +14,7 @@
         "cardText": "This collection of stunning desserts will be hard to resist, but totally worth the calories!",
         "cardImageTop": "../static/images/recipe-categories/dessert.png"   
     },
-        {
+    {
         "cardTitle": "Pastry",
         "cardText": "From pies to patisserie, they'll be no soggy bottoms with these amazing recipes!",
         "cardImageTop": "../static/images/recipe-categories/pastry.png"   
