@@ -185,11 +185,13 @@ body {
     color: antiquewhite;
     background-color: #2e837a;
     width: 253px;
-    margin-bottom: 10px;
+    margin-top: 7px;
 }
 
 .card-recipe {
     border-bottom: 1px solid black;
+    height: 200px;
+    margin-bottom: 10px;
 }
 
 ol{

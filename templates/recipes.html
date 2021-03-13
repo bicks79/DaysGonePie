@@ -32,7 +32,7 @@
     <!-- Page Features -->
     <!-- Recipes -->
     <div class="row features-header">
-        <h2 id="bread" class="col-12 recipes-header" >Recipes</h2>
+        <h2 id="recipes" class="col-12 recipes-header" >Recipes</h2>
     </div>
         
     <!-- Recipe Card -->
@@ -40,13 +40,15 @@
 
         {% for recipe in recipes %}
         <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
+            <div class="card">
                     
-                <!-- Recipe Card Images
-                {% for image in recipeImage %}
+            <!--Recipe Card Images-->
+            {% for image in recipeImage %}
+                {% if recipe.recipe_title == image.recipe_title %}
                 <img class="card-img-top" src="{{ image.recipeImage }}" alt="recipe_image">
-                {% endfor %} -->
-                    
+                {% endif %}
+            {% endfor %} 
+
                 <!-- Recipe Card Body -->
                 <div class="card-body card-recipe">
                     <h4 class="card-title">{{ recipe.recipe_title }}</h4>
@@ -54,65 +56,56 @@
                     <p class="card-text">{{ recipe.time }}</p>
                 </div>
             </div>
-        </div>
-        {% endfor %}
-    </div>
+            
+            <!-- Ingredients Accordion -->      
+            <div class="accordion" id="recipe-specs">
+                <div class="accordion-ingredients">
+                    <h4 class="accordion-header" id="headingIngredients">
+                        <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseIngredients"
+                            aria-expanded="true" aria-controls="collapseIngredients">Ingredients
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </h4>
+                    <div id="collapseIngredients" class="accordion-collapse collapse" aria-labelledby="headingIngredients" data-parent="#recipe-specs">
 
-    <div class="row">
-        <!-- Ingredients Accordion -->      
-        <div class="accordion col-lg-3 col-md-6 mb-4" id="recipe-specs">
-            <div class="accordion-ingredients">
-                <h4 class="accordion-header" id="headingIngredients">
-                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseIngredients"
-                        aria-expanded="true" aria-controls="collapseIngredients">Ingredients
-                        <i class="fas fa-chevron-circle-down"></i>
-                    </button>
-                </h4>
-            <div id="collapseIngredients" class="accordion-collapse collapse" aria-labelledby="headingIngredients" data-parent="#recipe-specs">
-            <div class="accordion-body">
+                        <!-- Ingredients List -->
+                        <div class="accordion-body">
+                        {% for item in ingredients %}
+                            {% if recipe.recipe_title == item.recipe_title  %}
+                            <ul>
+            
+                            </ul>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Ingredients List -->
-                {% for item in ingredients %}
-                <ul>
-                    <li>{{ item.in_one }}</li>
-                    <li>{{ item.in_two }}</li>
-                    <li>{{ item.in_three }}</li>
-                    <li>{{ item.in_four }}</li>
-                    <li>{{ item.in_five }}</li>
-                    <li>{{ item.in_six }}</li>
-                </ul>   
-                {% endfor %}
-            </div>
-        </div>
-    
-        <!-- Method Accordion -->
-        <div class="accordion-method">
-            <h4 class="accordion-header" id="headingMethod">
-                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseMethod" 
-                    aria-expanded="false" aria-controls="collapseMethod">Method
-                    <i class="fas fa-chevron-circle-down"></i>
-                </button>
-            </h4>
-            <div id="collapseMethod" class="accordion-collapse collapse" aria-labelledby="headingMethod" data-parent="#recipe-specs">
-                <div class="accordion-body">
+                <!-- Method Accordion -->
+                <div class="accordion-method">
+                    <h4 class="accordion-header" id="headingMethod">
+                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseMethod" 
+                            aria-expanded="false" aria-controls="collapseMethod">Method
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </h4>
+                    <div id="collapseMethod" class="accordion-collapse collapse" aria-labelledby="headingMethod" data-parent="#recipe-specs">
+                    
+                        <!-- Method Steps -->
+                        <div class="accordion-body">
+                            {% for step in method %}
+                                {% if recipe.recipe_title == step.recipe_title  %}
+                                <ol>
 
-                    <!-- Method Steps -->
-                    {% for step in method %}
-                    <ol>
-                        <li class="method">{{ step.step_one }}</li><br>
-                        <li class="method">{{ step.step_two }}</li><br>
-                        <li class="method">{{ step.step_three }}</li><br>
-                        <li class="method">{{ step.step_four }}</li><br>
-                        <li class="method">{{ step.step_five }}</li><br>
-                        <li class="method">{{ step.step_six }}</li><br>
-                        <li class="method">{{ step.step_seven }}</li><br>
-                        <li class="method">{{ step.step_eight }}</li><br>
-                        <li class="method">{{ step.step_nine }}</li><br>
-                    </ol>
-                    {% endfor %}
+                                </ol>
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
-</div>
 {% endblock %}

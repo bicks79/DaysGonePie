@@ -1,26 +1,34 @@
 [
-    {     
+    {   
+        "recipe_title": "Petit Pains",   
         "recipeImage": "../static/images/recipes/petit_pains.jpg"
     },
-    {
+    {   
+        "recipe_title": "Ginger Cake",
          "recipeImage": "../static/images/recipes/ginger_cake.jpg"
     }, 
     {
+        "recipe_title": "Perfect Pavlova",
          "recipeImage": "../static/images/recipes/pavlova.jpg"
     },
     {   
+        "recipe_title": "Chicken & Veg Filo Pie",
         "recipeImage": "../static/images/recipes/filo_pie.jpg"
     },
     {
+        "recipe_title": "Chicken & Spinach Tart",
         "recipeImage": "../static/images/recipes/puff_pastry_tart.jpg"
     },
     {
+        "recipe_title": "Banana & Rum Trifle",
         "recipeImage": "../static/images/recipes/banana_rum_trifle.jpg"
     },
     {
+        "recipe_title": "Sponge Cake",
         "recipeImage": "../static/images/recipes/victoria_sponge.jpg"
     },
     {
+        "recipe_title": "Soda Bread",
         "recipeImage": "../static/images/recipes/irish_soda_bread.jpg"
     }
 ]
