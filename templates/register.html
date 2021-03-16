@@ -20,11 +20,11 @@
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="mb-3">
                     <label for="username" class="col-10 offset-1 offset-md-2 username-header"><i class="fas fa-user-tag"></i>  username</label>
-                    <input type="username" class="col-10 offset-1 offset-md-2 form-username" id="username" name="username" placeholder="username" aria-describedby="usernameHelp">
+                    <input type="username" class="col-10 offset-1 offset-md-2 form-username" id="username" name="username" placeholder="username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9{5,15}]$" aria-describedby="usernameHelp" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="col-10 offset-1 offset-md-2 offset-lg-2 password-header"><i class="fas fa-key"></i>  Password</label>
-                    <input type="password" class="col-10 offset-1 offset-md-2 form-password" id="password" name="password" placeholder="password">
+                    <input type="password" class="col-10 offset-1 offset-md-2 form-password" id="password" name="password" placeholder="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9{5,15}]$" required>
                 </div>
                 <div class="btn-form col-12 offset-md-2">
                     <button type="submit" class="btn btn-login">Sign Up!</button>

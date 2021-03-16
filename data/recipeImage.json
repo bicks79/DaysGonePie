@@ -1,7 +1,8 @@
 [
     {   
         "recipe_title": "Petit Pains",   
-        "recipeImage": "../static/images/recipes/petit_pains.jpg"
+        "recipeImage": "../static/images/recipes/petit_pains.jpg",
+        "modalImage": "../static/images/modal/petit_pains_modal.png"
     },
     {   
         "recipe_title": "Ginger Cake",
@@ -29,6 +30,7 @@
     },
     {
         "recipe_title": "Soda Bread",
-        "recipeImage": "../static/images/recipes/irish_soda_bread.jpg"
+        "recipeImage": "../static/images/recipes/irish_soda_bread.jpg",
+        "modalImage": "../static/images/modal/irish_soda_bread_modal.png"
     }
 ]

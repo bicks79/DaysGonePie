@@ -32,7 +32,7 @@ def index():
 def recipes():
     with open("data/recipeImage.json", "r") as json_data:
         data = json.load(json_data)
-        recipes = mongo.db.recipes.find()
+        recipes = list(mongo.db.recipes.find())
         ingredients = mongo.db.ingredients.find()
         method = mongo.db.method.find()
     return render_template(

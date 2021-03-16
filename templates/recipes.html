@@ -29,8 +29,7 @@
 <!-- Page Content -->
 <div class="container container-fluid container-recipes">
 
-    <!-- Page Features -->
-    <!-- Recipes -->
+    <!-- Recipes Header -->
     <div class="row features-header">
         <h2 id="recipes" class="col-12 recipes-header" >Recipes</h2>
     </div>
@@ -55,57 +54,82 @@
                     <p class="card-text">{{ recipe.serves }}</p>
                     <p class="card-text">{{ recipe.time }}</p>
                 </div>
+                <div class="card-footer recipe-footer">
+                    <button type="button" class="btn btn-sm btn-recipe" data-toggle="modal" data-target="#recipeModal">
+                        See Recipe!
+                    </button>
+                </div>
             </div>
-            
-            <!-- Ingredients Accordion -->      
-            <div class="accordion" id="recipe-specs">
-                <div class="accordion-ingredients">
-                    <h4 class="accordion-header" id="headingIngredients">
-                        <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseIngredients"
-                            aria-expanded="true" aria-controls="collapseIngredients">Ingredients
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </h4>
-                    <div id="collapseIngredients" class="accordion-collapse collapse" aria-labelledby="headingIngredients" data-parent="#recipe-specs">
+        </div>        
+        {% endfor %}
+    </div>
+</div>
 
-                        <!-- Ingredients List -->
-                        <div class="accordion-body">
+<!-- Recipe Modal -->
+<div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <!--modal size here modal-lg etc-->
+        {% for recipe in recipes %}
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ recipe.recipe_title }}</h5>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        {% for image in recipeImage %}
+                        <div class="col-md-5">
+                            {% if recipe.recipe_title == image.recipe_title %}
+                            <img class="modal-img" src="{{ image.modalImage }}" alt="recipe_image">
+                            {% endif %}
+                        </div>
+                        {% endfor %} 
+                        <div class="col-md-6 ms-auto">
+                            <p class="modal-text">{{ recipe.serves }}</p>
+                            <p class="modal-text">{{ recipe.time }}</p>
+                            <p class="modal-text">{{ recipe.desc }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 ms-auto">
+                            <h5>Ingredients</h5>
+                        </div>
+                        
                         {% for item in ingredients %}
-                            {% if recipe.recipe_title == item.recipe_title  %}
+                        <div>
+                            {% if recipe.recipe_title == item.recipe_title %}
                             <ul>
-            
+                                <li>{{ item.in_one }}</li>
                             </ul>
                             {% endif %}
+                        </div>
                         {% endfor %}
-                        </div>
                     </div>
-                </div>
-
-                <!-- Method Accordion -->
-                <div class="accordion-method">
-                    <h4 class="accordion-header" id="headingMethod">
-                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseMethod" 
-                            aria-expanded="false" aria-controls="collapseMethod">Method
-                            <i class="fas fa-chevron-circle-down"></i>
-                        </button>
-                    </h4>
-                    <div id="collapseMethod" class="accordion-collapse collapse" aria-labelledby="headingMethod" data-parent="#recipe-specs">
-                    
-                        <!-- Method Steps -->
-                        <div class="accordion-body">
-                            {% for step in method %}
-                                {% if recipe.recipe_title == step.recipe_title  %}
-                                <ol>
-
-                                </ol>
-                                {% endif %}
-                            {% endfor %}
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12 ms-auto">
+                            <h5>Method</h5>    
                         </div>
+                        {% for step in method %}
+                        <div>
+                            {% if recipe.recipe_title == step.recipe_title %}
+                            <ol>
+                                <li>{{ step.method [''] }}</li>
+                            </ol>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-            {% endfor %}
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm" data-dismiss="modal">Close</button>
+            </div>
         </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}

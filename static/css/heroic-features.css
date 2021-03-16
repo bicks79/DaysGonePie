@@ -176,30 +176,21 @@ body {
     margin-top: 20px;
 }
 
-/*Accordian*/
-.accordion-header {
+/*--------------------------------------------------Page Content - Recipes*/
+/*Recipe CTA*/
+.card-recipe {
+    min-height: 175px;
+}
+
+/*Recipe Card Footer*/
+.recipe-footer {
     text-align: center;
 }
 
-.accordion-button {
-    color: antiquewhite;
-    background-color: #2e837a;
-    width: 253px;
-    margin-top: 7px;
-}
-
-.card-recipe {
-    border-bottom: 1px solid black;
-    height: 200px;
-    margin-bottom: 10px;
-}
-
-ol{
-    padding-left: 20px;
-}
-
-.method {
-    text-align: justify;
+/*--------------------------------------------------Modal - Recipes*/
+/*Body*/
+.modal-text {
+    color: black;
 }
 
 /*--------------------------------------------------Features text*/
