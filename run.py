@@ -33,7 +33,7 @@ def recipes():
     with open("data/recipeImage.json", "r") as json_data:
         data = json.load(json_data)
         recipes = list(mongo.db.recipes.find())
-        ingredients = mongo.db.ingredients.find()
+        ingredients = list(mongo.db.ingredients.find())
         method = mongo.db.method.find()
     return render_template(
         "recipes.html", page_title="Recipes",
@@ -45,7 +45,10 @@ def recipes():
 
 @app.route("/feature")  # feature.html route decorator
 def feature():
-    return render_template("feature.html", page_title="Feature")
+    with open("data/feature.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template(
+        "feature.html", page_title="Feature", feature=data)
 
 
 @app.route(

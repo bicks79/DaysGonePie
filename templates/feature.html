@@ -9,10 +9,12 @@
         </div>  
         <div class="col-12 jumbotron-content">
             <p class="jumbotron-text col-12 col-lg-6">
-                Each month we shine the spotlight on companies who love to help bakers do what they do. Without these people, baking
-                just wouldn't be possible, and it only seems fair to show our appreciation for the suppliers who allow us to keep
-                baking throughout the year. Finding the right ingredient to take your bake to the next level can be frustrating, but
-                we try our best to help you discover the best quality for the right price.
+                Days Gone Pie is nothing without the community of bakers that support the site.
+                We rely on you as members to help fill our recipe books with amazing things that
+                put smiles on faces.  We want everyone who visits us here to feel right at home,
+                so every month we put one of our amazing members in the spotlight and let them tell
+                you a little bit about themselves and select a special recipe that they think you will
+                really love.
             </p>
         </div>
     </div>
@@ -23,14 +25,16 @@
 
     <!-- Page Features -->
     <div class="row features-header">
-        <h2 class="col-12 recipes-header">Dove's Farm</h2>
+        <h2 class="col-12 recipes-header">The Saxon Forager</h2>
+    </div>
+    <div class="row">
+        {% for image in feature %}
+        <img class="feature-img" src="{{ image.saxonLogo }}" alt="feature_image">
+        {% endfor %}
     </div> 
     <div class="row col-12 featurette">
-        <p>It started with a passion, as all good things do. A fascination for whole grains and organic farming, our founders
-            Clare and Michael Marriage sowed their first seeds in 1977 with the simple idea of making great quality flour from
-            their grains. Water, wind, soil and sun sustained their crop, and with a little time and patience, a year later
-            their first grains were ready to harvest. The first stone grinding equipment was installed and they began to mill
-            whole grains into wholemeal flour.
+        <p>
+
         </p>
     </div>
     <div class="row col-6 feature-image">
@@ -38,10 +42,9 @@
     </div>
     
     <div class="row col-12 featurette">
-        <p>As a family business, we’ve milled organic and heritage flours as well as a range of naturally gluten free flours
-            since we were founded. We’ve made biscuits from our wholemeal flour and also reintroduced some of the UK’s lost
-            ancient grains back to our soils. Today, we continueto be driven by our original mission to make quality organic 
-            flour with care, and the result is a range of unique, distinctive and trusted flours that make home baking a joy.
+        <p>
+            Craig Brooks lives in Wiltshire (UK). He is better known to the online community as 'The Saxon Forager',
+            a historical re-enactor and one man baking/brewing sensation.
         </p>
     </div> 
 {% endblock %}

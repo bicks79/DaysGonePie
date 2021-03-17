@@ -55,7 +55,7 @@
                     <p class="card-text">{{ recipe.time }}</p>
                 </div>
                 <div class="card-footer recipe-footer">
-                    <button type="button" class="btn btn-sm btn-recipe" data-toggle="modal" data-target="#recipeModal">
+                    <button type="button" class="btn btn-sm btn-recipe" data-toggle="modal" data-target="#a{{ recipe._id }}">
                         See Recipe!
                     </button>
                 </div>
@@ -66,13 +66,12 @@
 </div>
 
 <!-- Recipe Modal -->
-<div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <!--modal size here modal-lg etc-->
-        {% for recipe in recipes %}
+{% for recipe in recipes %}
+<div class="modal fade" id="a{{ recipe._id }}" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog"><!--modal size here modal-lg etc-->
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ recipe.recipe_title }}</h5>
+                <h5 class="modal-title" id="recipeModalLabel">{{ recipe.recipe_title }}</h5>
             </div>
 
             <!-- Modal Body -->
@@ -96,16 +95,17 @@
                         <div class="col-12 ms-auto">
                             <h5>Ingredients</h5>
                         </div>
-                        
                         {% for item in ingredients %}
                         <div>
                             {% if recipe.recipe_title == item.recipe_title %}
                             <ul>
-                                <li>{{ item.in_one }}</li>
+                                {% for i in item.components %}
+                                <li class="ingredient-item">{{ i }}</li><br>
+                                {% endfor %}
                             </ul>
                             {% endif %}
                         </div>
-                        {% endfor %}
+                        {% endfor %}   
                     </div>
                     <div class="row">
                         <div class="col-md-12 ms-auto">
@@ -115,7 +115,9 @@
                         <div>
                             {% if recipe.recipe_title == step.recipe_title %}
                             <ol>
-                                <li>{{ step.method [''] }}</li>
+                                {% for s in step.steps %}
+                                <li class="method-step">{{ s }}</li><br>
+                                {% endfor %}
                             </ol>
                             {% endif %}
                         </div>
@@ -129,7 +131,7 @@
                 <button type="button" class="btn btn-sm" data-dismiss="modal">Close</button>
             </div>
         </div>
-        {% endfor %}
     </div>
 </div>
+{% endfor %}
 {% endblock %}

@@ -200,6 +200,11 @@ body {
     margin: 0 auto;
 }
 
+/*feature logo*/
+.feature-img{
+    margin: 0 auto;
+}
+
 /*--------------------------------------------------Register*/
 .username-header{
     font-family: 'Poppins', sans-serif;
