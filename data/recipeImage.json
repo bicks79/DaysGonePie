@@ -6,27 +6,33 @@
     },
     {   
         "recipe_title": "Ginger Cake",
-         "recipeImage": "../static/images/recipes/ginger_cake.jpg"
+         "recipeImage": "../static/images/recipes/ginger_cake.jpg",
+         "modalImage": "../static/images/modal/ginger_cake_modal.png"
     }, 
     {
         "recipe_title": "Perfect Pavlova",
-         "recipeImage": "../static/images/recipes/pavlova.jpg"
+         "recipeImage": "../static/images/recipes/pavlova.jpg",
+         "modalImage": "../static/images/modal/pavlova_modal.png"
     },
     {   
-        "recipe_title": "Chicken & Veg Filo Pie",
-        "recipeImage": "../static/images/recipes/filo_pie.jpg"
+        "recipe_title": "Chicken & Broccoli Filo Pie",
+        "recipeImage": "../static/images/recipes/filo_pie.jpg",
+        "modalImage": "../static/images/modal/filo_pie_modal.png"
     },
     {
         "recipe_title": "Chicken & Spinach Tart",
-        "recipeImage": "../static/images/recipes/puff_pastry_tart.jpg"
+        "recipeImage": "../static/images/recipes/puff_pastry_tart.jpg",
+        "modalImage": "../static/images/modal/puff_pastry_tart_modal.png"
     },
     {
         "recipe_title": "Banana & Rum Trifle",
-        "recipeImage": "../static/images/recipes/banana_rum_trifle.jpg"
+        "recipeImage": "../static/images/recipes/banana_rum_trifle.jpg",
+        "modalImage": "../static/images/modal/banana_rum_trifle_modal.png"
     },
     {
         "recipe_title": "Sponge Cake",
-        "recipeImage": "../static/images/recipes/victoria_sponge.jpg"
+        "recipeImage": "../static/images/recipes/victoria_sponge.jpg",
+        "modalImage": "../static/images/modal/victoria_sponge_modal.png"
     },
     {
         "recipe_title": "Soda Bread",

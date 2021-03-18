@@ -159,7 +159,6 @@ body {
     color: antiquewhite;
     background-color: #2e837a;
     border-top: 2px solid antiquewhite;
-
 }
 
 /*--------------------------------------------------Jumbotron Recipes*/
@@ -188,9 +187,44 @@ body {
 }
 
 /*--------------------------------------------------Modal - Recipes*/
+/*Header*/
+.modal-header {
+    background-color: #2e837a;
+    color: antiquewhite;
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-sub-header {
+    text-decoration: underline;
+}
+
 /*Body*/
 .modal-text {
     color: black;
+}
+
+.component,
+.process {
+    padding-left: 20px;
+}
+
+.process-step {
+    text-align: justify;
+}
+
+
+/*Footer*/
+.modal-footer {
+    color: antiquewhite;
+    background-color: #2e837a;
+    border-top: 2px solid antiquewhite;
+}
+
+/*Button*/
+.btn-modal {
+    width: 200px;
+    text-transform: uppercase;
+    margin: 0 auto;  
 }
 
 /*--------------------------------------------------Features text*/

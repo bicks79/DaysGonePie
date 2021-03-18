@@ -78,29 +78,35 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
+
+                        <!-- Recipe Image -->
                         {% for image in recipeImage %}
-                        <div class="col-md-5">
+                        <div class="col-12">
                             {% if recipe.recipe_title == image.recipe_title %}
                             <img class="modal-img" src="{{ image.modalImage }}" alt="recipe_image">
                             {% endif %}
                         </div>
                         {% endfor %} 
-                        <div class="col-md-6 ms-auto">
+
+                        <!-- Recipe Details -->
+                        <div class="col-md-12 ms-auto">
                             <p class="modal-text">{{ recipe.serves }}</p>
                             <p class="modal-text">{{ recipe.time }}</p>
                             <p class="modal-text">{{ recipe.desc }}</p>
                         </div>
                     </div>
                     <div class="row">
+
+                        <!-- Ingredients -->
                         <div class="col-12 ms-auto">
-                            <h5>Ingredients</h5>
+                            <h5 class="modal-sub-header">Ingredients</h5>
                         </div>
                         {% for item in ingredients %}
                         <div>
                             {% if recipe.recipe_title == item.recipe_title %}
-                            <ul>
+                            <ul class="component">
                                 {% for i in item.components %}
-                                <li class="ingredient-item">{{ i }}</li><br>
+                                <li class="component-item">{{ i }}</li>
                                 {% endfor %}
                             </ul>
                             {% endif %}
@@ -108,15 +114,17 @@
                         {% endfor %}   
                     </div>
                     <div class="row">
+
+                        <!-- Method -->
                         <div class="col-md-12 ms-auto">
-                            <h5>Method</h5>    
+                            <h5 class="modal-sub-header">Method</h5>    
                         </div>
                         {% for step in method %}
                         <div>
                             {% if recipe.recipe_title == step.recipe_title %}
-                            <ol>
-                                {% for s in step.steps %}
-                                <li class="method-step">{{ s }}</li><br>
+                            <ol class="process">
+                                {% for s in step.process %}
+                                <li class="process-step">{{ s }}</li><br>
                                 {% endfor %}
                             </ol>
                             {% endif %}
@@ -128,7 +136,7 @@
 
             <!-- Modal Footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-sm" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-modal" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

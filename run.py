@@ -34,7 +34,7 @@ def recipes():
         data = json.load(json_data)
         recipes = list(mongo.db.recipes.find())
         ingredients = list(mongo.db.ingredients.find())
-        method = mongo.db.method.find()
+        method = list(mongo.db.method.find())
     return render_template(
         "recipes.html", page_title="Recipes",
         recipes=recipes,
