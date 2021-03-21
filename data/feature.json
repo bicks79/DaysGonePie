@@ -1,5 +1,31 @@
 [
     {
-        "saxonLogo":"../static/images/feature/the_saxon_forager.png"
+        "saxon_logo":"../static/images/feature/the_saxon_forager.png",
+        "oyster_loaf":"../static/images/feature/oysterloaf.png",
+        "feature_recipe": "Osterhlafas (Oyster Loaf)",
+        "components": 
+            [
+                "1 large loaf of bread",
+                "Large knob of butter",
+                "1/2 cup of white wine",
+                "1/2 a cup of water",
+                "12 Oysters (cleaned and shucked)",
+                "1/2 cup beef (cut into small pieces)",
+                "1 tablespoon of suet",
+                "2 egg yolks",
+                "2 tsp Parsley",
+                "Salt & Pepper"
+            ],
+        "process":
+            [
+                "Cut a ‘lid’ from the top of the loaf and scoop out the insides of the loaf, to make a bowl. Retain half the bread filling and break into small pieces.",
+                "Melt the butter in a pan and add the bread pieces, along with the wine and the water. Heat gently while squashing the bread pieces with a spoon to further break them up.",
+                "Bring to a simmer and add the beef and suet. Simmer for around 5 minutes. Add the oysters (including their liquid) and simmer for a few minutes.",
+                "Stir in the egg yolks, parsley and season with salt & pepper.",
+                "Pour the mixture into the hollow loaf and pop the bread ‘lid’ back on.",
+                "Put the loaves into a pre heated oven at 160 degrees Celsius, and bake for around 20 -25 minutes, until the filling has set.",
+                "Serve by slicing into think cuts."
+            ]
+        
     }
 ]

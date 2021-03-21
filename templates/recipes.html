@@ -71,7 +71,7 @@
     <div class="modal-dialog"><!--modal size here modal-lg etc-->
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="recipeModalLabel">{{ recipe.recipe_title }}</h5>
+                <h4 class="modal-title" id="recipeModalLabel">{{ recipe.recipe_title }}</h4>
             </div>
 
             <!-- Modal Body -->
@@ -90,8 +90,8 @@
 
                         <!-- Recipe Details -->
                         <div class="col-md-12 ms-auto">
-                            <p class="modal-text">{{ recipe.serves }}</p>
-                            <p class="modal-text">{{ recipe.time }}</p>
+                            <p class="modal-text"><strong>{{ recipe.serves }}</strong></p>
+                            <p class="modal-text"><strong>{{ recipe.time }}</strong></p>
                             <p class="modal-text">{{ recipe.desc }}</p>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
 
                         <!-- Ingredients -->
                         <div class="col-12 ms-auto">
-                            <h5 class="modal-sub-header">Ingredients</h5>
+                            <h5 class="modal-sub-header"><strong>Ingredients</strong></h5>
                         </div>
                         {% for item in ingredients %}
                         <div>
@@ -117,7 +117,7 @@
 
                         <!-- Method -->
                         <div class="col-md-12 ms-auto">
-                            <h5 class="modal-sub-header">Method</h5>    
+                            <h5 class="modal-sub-header"><strong>Method</strong></h5>    
                         </div>
                         {% for step in method %}
                         <div>

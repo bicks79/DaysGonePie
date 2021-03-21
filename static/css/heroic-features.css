@@ -195,12 +195,13 @@ body {
 }
 
 .modal-sub-header {
-    text-decoration: underline;
+    margin-top: 15px;
 }
 
 /*Body*/
 .modal-text {
     color: black;
+    margin: 10px 0px;
 }
 
 .component,
@@ -228,16 +229,39 @@ body {
 }
 
 /*--------------------------------------------------Features text*/
-/*featurette*/
-.featurette {
+/*feature*/
+.feature {
     text-align: justify;
     margin: 0 auto;
 }
 
 /*feature logo*/
 .feature-img{
+    text-align: center;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
+
+/*feature recipe image*/
+.feature-img-recipe {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*feature recipe header*/
+.feature-recipe-header {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.feature-process-step {
+    text-align: justify;
+    padding-right: 20px;
+}
+
 
 /*--------------------------------------------------Register*/
 .username-header{
