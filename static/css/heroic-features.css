@@ -84,7 +84,7 @@ body {
 }
 
 
-/*Jumbotron text content*/
+/*Jumbotron Text Content*/
 .jumbotron-text {
     color: antiquewhite;
     text-align: justify;
@@ -229,26 +229,26 @@ body {
 }
 
 /*--------------------------------------------------Features text*/
-/*feature*/
+/*Feature*/
 .feature {
     text-align: justify;
     margin: 0 auto;
 }
 
-/*feature logo*/
+/*Feature Logo*/
 .feature-img{
     text-align: center;
     margin: 0 auto;
     margin-bottom: 20px;
 }
 
-/*feature recipe image*/
+/*Feature Recipe Image*/
 .feature-img-recipe {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/*feature recipe header*/
+/*Feature Recipe Header*/
 .feature-recipe-header {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
@@ -259,7 +259,7 @@ body {
 
 .feature-process-step {
     text-align: justify;
-    padding-right: 20px;
+    padding-right: 30px;
 }
 
 
@@ -318,9 +318,17 @@ body {
 
 /*--------------------------------------------------Profile*/
 .profile-header {
+    font-family: 'Poppins', sans-serif;
     margin-top: 65px;
     text-align: center;
 }
+
+.create-header {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 15px 0px 30px;
+}
+
 
 
 
@@ -350,21 +358,20 @@ body {
 }
 
 
-
 /*--------------------------------------------------Media Queries min-width 768px*/
-/*Navbar*/
+/*----------------------------Navbar*/
 @media screen and (min-width: 768px) {
 #navbarResponsive {
     text-align: right;
 }
 
-/*Jumbotron*/
+/*----------------------------Jumbotron*/
 /*Jumbotron Recipes*/
 .btn-search {
     margin-top: 0px;
 }
 
-/*Register*/
+/*----------------------------Register*/
 .container-register,
 .container-login {
     height: 88vh;
@@ -379,6 +386,7 @@ body {
     margin-bottom: 30px;
 }
 
+/*----------------------------Login*/
 /*Login Header*/
 .login-header {
     margin: 100px 0px 50px;

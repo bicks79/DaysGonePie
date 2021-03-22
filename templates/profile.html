@@ -4,29 +4,69 @@
 
 <!-- Username profie header -->
 <div class="container container-fluid container-profile">
-    <div class="row col-12">
-        <h3 class="profile-header col-12">{{ username }}'s kitchen</h3>
+    <div class="row">
+        <h3 class=" col-12 profile-header">{{ username }}'s Kitchen</h3>
     </div>
+
+    <!-- Users Recipes -->
 </div>
 
     
-<!-- Users Recipes -->
-<div class="accordion" id="userRecipes">
-    {% for recipe in bread_recipes %}
-    <div class="accordion-recipes">
-        <h3 class="accordion-header" id="recipes-category">
-            <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapse-recipes"
-                aria-expanded="true" aria-controls="collapse-recipes">
-                Bread
-            </button>
-        </h3>
-        <div id="collapse-recipes" class="accordion-collapse collapse show" aria-labelledby="heading-recipes"
-            data-parent="#userRecipes">
-            <div class="accordion-body">
-            </div>
-        </div>
+
+<!-- Add Recipe -->
+<div class="container container-fluid container-create">
+    <div class="row">
+        <h3 class="col-12 create-header"> Add New Recipe</h3>
     </div>
-    {% endfor %}
+    <!-- New Recipe Form -->
+    <form method="POST" action="">
+        <div class="form-group">
+            <label for="recipe_title">Recipe Title</label>
+            <input type="email" class="form-control" id="recipe_title" name="recipe_title" placeholder="What is your recipe called?"
+                minlength="5" maxlength="50">
+        </div>
+
+        <!-- Recipe Category -->
+        <div class="form-group">
+            <label for="category_name">Recipe Category</label>
+            <select class="form-control validate" id="category_name" name="category_name" required>
+                {% for category in categories %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Servings -->
+        <div class="form-group">
+            <label for="serves">Servings</label>
+            <textarea class="form-control" id="serves" name="serves" rows="1" placeholder="How many people does the recipe serve?"
+                minlength="5" maxlength="20"></textarea>
+        </div>
+
+        <!-- Timings -->
+        <div class="form-group">
+            <label for="time">Prep|Cooking Time</label>
+            <textarea class="form-control" id="time" name="time" rows="1" placeholder="Prep: |Cook:"
+                minlength="5" maxlength="20"></textarea>
+        </div>
+
+        <!-- Ingredients -->
+        <div class="form-group">
+            <label for="components">Ingredients</label>
+            <textarea class="form-control" id="components" name="components" rows="10" placeholder="What do you need?"
+                minlength="5"></textarea>
+        </div>
+
+        <!-- Method -->
+        <div class="form-group">
+            <label for="process">Method</label>
+            <textarea class="form-control" id="process" name="process" rows="10" placeholder="How do I make it?"
+                minlength="5"></textarea>
+        </div>
+    </form>
 </div>
+
+
+
 
 {% endblock %}

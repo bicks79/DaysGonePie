@@ -36,13 +36,15 @@
     <div class="row col-12 feature">
         <p>
             Craig Brooks lives in Wiltshire (UK). He is better known to the online community as 'The Saxon Forager',
-            a historical re-enactor and one man baking/brewing sensation. In his new book, 'Eat Like a Viking', Craig
-            has tried to recreate some of the food and drink that would have been eaten by our Anglo Saxon fore-fathers.
+            a historical re-enactor and one man baking/brewing sensation. In his new book, 'Eat Like a Viking' Vol.2, Craig
+            has continued his work, attempting recreate some of the food and drink that would have been eaten by our 
+            Anglo Saxon fore-fathers.
         </p>
         <p>
-            Osterhlafas (Oyster loaf) is one of the recipes in 'Eat Like a Viking', and Craig has been kind enough to
-            share it with us. He said, "I'd considered making this recipe for some time, and working on content for my next
-            book gave me the perfect opportunity to give it a go. I like it as it's a little on the unusual side and I was
+            Osterhlafas (Oyster loaf) is one of the recipes in 'Eat Like a Viking' Vol.2, and Craig has been kind enough to
+            share it with us. We asked craig why he'd decided to share this particular recipe with us.
+            "I'd considered making this recipe for some time, and working on content for my next book gave me the perfect
+            opportunity to give it a go. I like it as it's a little on the unusual side and I was
             able to create something that I hadn't seen before."
         </p>
     </div>
@@ -62,20 +64,22 @@
             <div class="offset-1">
                 <h5 class="feature-sub-header"><strong>Ingredients</strong></h5>
             </div>
-            <ul class="col-lg-3 offset-1">
+            <ul>
             {% for i in recipe.components %}
                 <li class="component-item">{{ i }}</li>
             {% endfor %}
             </ul>
         </div>
+    </div>
 
+    <div class="row">
         <!-- Method -->
         <div class="feature-method">
             <div class="offset-1">
                 <h5 class="modal-sub-header"><strong>Method</strong></h5>    
             </div>
             <div>
-                <ol class="col-lg-6 offset-1">
+                <ol>
                 {% for s in recipe.process %}
                     <li class="feature-process-step">{{ s }}</li><br>
                 {% endfor %}

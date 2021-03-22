@@ -111,6 +111,11 @@ def profile(username):
     return redirect(url_for('login'))
 
 
+def category():
+    categories = list(mongo.db.recipes.find()).sort("category_name", 1)
+    return render_template("profile.html", categories=categories)
+
+
 @app.route("/logout")
 def logout():
     # remove user from cookies
