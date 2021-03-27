@@ -85,7 +85,7 @@ def login():
             # check password match
             if check_password_hash(
                existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("password").lower()
+                session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for("profile", username=session["user"]))
             else:
@@ -102,18 +102,34 @@ def login():
 # profile.html route decorator
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    categories = mongo.db.categories.find().sort("categories", 1)
+
     # return username from mongodb
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template(
+            "profile.html",
+            username=username,
+            categories=categories
+            )
+
+    # adding a new recipe to mongodb
+    if request.method == "POST":
+        recipe = {
+            "category_name": request.form.get("category_name"),
+            "recipe_title": request.form.get("recipe_title"),
+            "serves": request.form.get("serves"),
+            "time": request.form.get("time"),
+            "desc": request.form.get("desc"),
+            "created_by": session["user"]
+            }
+
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe added to your kitchen")
+        return redirect(url_for('profile'))
 
     return redirect(url_for('login'))
-
-
-def category():
-    categories = list(mongo.db.recipes.find()).sort("category_name", 1)
-    return render_template("profile.html", categories=categories)
 
 
 @app.route("/logout")

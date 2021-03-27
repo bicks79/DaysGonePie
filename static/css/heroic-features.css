@@ -228,6 +228,13 @@ body {
     margin: 0 auto;  
 }
 
+/*Button Close - Font Awesome Icon*/
+.modal-close {
+    background-color: transparent;
+    border: none;
+    color: antiquewhite;
+}
+
 /*--------------------------------------------------Features text*/
 /*Feature*/
 .feature {
@@ -329,6 +336,14 @@ body {
     margin: 15px 0px 30px;
 }
 
+/*Recipe CRUD buttons*/
+input[type=radio]{
+    display:none;
+}
+
+.btn-submit {
+    margin: 0 auto;
+}
 
 
 

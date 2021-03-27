@@ -2,71 +2,132 @@
 {% block content_profile %}
 
 
-<!-- Username profie header -->
+<!-- User Profie Header -->
 <div class="container container-fluid container-profile">
     <div class="row">
         <h3 class=" col-12 profile-header">{{ username }}'s Kitchen</h3>
     </div>
+</div>
 
-    <!-- Users Recipes -->
+<!-- User Recipe CRUD -->
+<div class="container container-fluid container-crud">
+    <div class="row">
+        <div class="btn-group col-12" role="group" aria-label="Basic radio toggle button group">
+        
+            <!-- New Recipe Modal Trigger -->
+            <button type="button" class="btn btn-recipe" data-toggle="modal" data-target="#newRecipeModal">
+                New Recipe
+            </button>
+            <button type="button" class="btn btn-recipe" data-toggle="modal" data-target="#editRecipe">
+                Edit Recipe
+            </button>
+            <button type="button" class="btn btn-recipe" data-toggle="modal" data-target="#deleteRecipe">
+                Delete Recipe
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- New Recipe Modal -->
+<div class="modal fade" id="newRecipeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Recipe</h5>
+                <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></button>
+                
+            </div>
+            <div class="modal-body">
+
+                <!-- Add New Recipe Form -->
+                <form method="POST" action="{{ url_for ('profile', username=username) }}">
+
+                    <!-- Recipe Title -->
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <i class="fas fa-book-open"></i>
+                            <label for="recipe_title">Recipe Title</label>
+                            <input type="text" class="form-control" id="recipe_title" name="recipe_title" 
+                            placeholder="What is your recipe called?" minlength="5" maxlength="50" reqiured>
+                        </div>
+                    </div>
+        
+                    <!-- Recipe Category -->
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <i class="far fa-folder-open"></i>
+                            <label for="category_name">Recipe Category</label>
+                            <select class="form-control" id="category_name" name="category_name" required>
+                                <option value="" disabled selected>Select a Category</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Servings -->
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <i class="fas fa-chart-pie"></i>
+                            <label for="serves">Servings</label>
+                            <textarea class="form-control" id="serves" name="serves" rows="1" placeholder="Makes / Servings" 
+                            minlength="5" maxlength="20"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Timings -->
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <i class="far fa-clock"></i>
+                            <label for="time">Prep|Cooking Time</label>
+                            <textarea class="form-control" id="time" name="time" rows="1" placeholder="Prep: |Cook:"
+                            minlength="5" maxlength="20"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <i class="far fa-file-alt"></i>
+                            <label for="desc">Recipe Description</label>
+                            <textarea class="form-control" id="desc" name="desc" rows="2" placeholder="Tell us how tasty your recipe is!"
+                            minlength="5" maxlength="50"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Ingredients -->
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <i class="fas fa-list-ul"></i>
+                            <label for="components"> Ingredients</label>
+                            <textarea class="form-control" id="components" name="components" rows="10" placeholder="What do you need?"
+                            minlength="5"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Method -->
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <i class="fas fa-list-ol"></i>
+                            <label for="process"> Method</label>
+                            <textarea class="form-control" id="process" name="process" rows="20" placeholder="How do I make it?"
+                            minlength="5"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="row">
+                        <button type="submit" class="btn btn-recipe btn-submit" action="{{ url_for('profile', username=username) }}">Add Recipe</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-modal" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
     
-
-<!-- Add Recipe -->
-<div class="container container-fluid container-create">
-    <div class="row">
-        <h3 class="col-12 create-header"> Add New Recipe</h3>
-    </div>
-    <!-- New Recipe Form -->
-    <form method="POST" action="">
-        <div class="form-group">
-            <label for="recipe_title">Recipe Title</label>
-            <input type="email" class="form-control" id="recipe_title" name="recipe_title" placeholder="What is your recipe called?"
-                minlength="5" maxlength="50">
-        </div>
-
-        <!-- Recipe Category -->
-        <div class="form-group">
-            <label for="category_name">Recipe Category</label>
-            <select class="form-control validate" id="category_name" name="category_name" required>
-                {% for category in categories %}
-                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-
-        <!-- Servings -->
-        <div class="form-group">
-            <label for="serves">Servings</label>
-            <textarea class="form-control" id="serves" name="serves" rows="1" placeholder="How many people does the recipe serve?"
-                minlength="5" maxlength="20"></textarea>
-        </div>
-
-        <!-- Timings -->
-        <div class="form-group">
-            <label for="time">Prep|Cooking Time</label>
-            <textarea class="form-control" id="time" name="time" rows="1" placeholder="Prep: |Cook:"
-                minlength="5" maxlength="20"></textarea>
-        </div>
-
-        <!-- Ingredients -->
-        <div class="form-group">
-            <label for="components">Ingredients</label>
-            <textarea class="form-control" id="components" name="components" rows="10" placeholder="What do you need?"
-                minlength="5"></textarea>
-        </div>
-
-        <!-- Method -->
-        <div class="form-group">
-            <label for="process">Method</label>
-            <textarea class="form-control" id="process" name="process" rows="10" placeholder="How do I make it?"
-                minlength="5"></textarea>
-        </div>
-    </form>
-</div>
-
-
-
-
 {% endblock %}

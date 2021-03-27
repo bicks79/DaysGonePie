@@ -72,6 +72,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="recipeModalLabel">{{ recipe.recipe_title }}</h4>
+                <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></button>
             </div>
 
             <!-- Modal Body -->
@@ -90,6 +91,7 @@
 
                         <!-- Recipe Details -->
                         <div class="col-md-12 ms-auto">
+                            <p><em>by: {{ recipe.created_by }}</em></p>
                             <p class="modal-text"><strong>{{ recipe.serves }}</strong></p>
                             <p class="modal-text"><strong>{{ recipe.time }}</strong></p>
                             <p class="modal-text">{{ recipe.desc }}</p>
