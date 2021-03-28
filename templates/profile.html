@@ -57,7 +57,7 @@
                         <div class="form-group col-12">
                             <i class="far fa-folder-open"></i>
                             <label for="category_name">Recipe Category</label>
-                            <select class="form-control" id="category_name" name="category_name" required>
+                            <select class="form-control" id="category_name" name="category_name">
                                 <option value="" disabled selected>Select a Category</option>
                                 {% for category in categories %}
                                     <option value="{{ category.category_name }}">{{ category.category_name }}</option>
@@ -78,11 +78,18 @@
 
                     <!-- Timings -->
                     <div class="row">
-                        <div class="form-group col-12">
+                        <!-- Prep -->
+                        <div class="form-group col-6">
                             <i class="far fa-clock"></i>
-                            <label for="time">Prep|Cooking Time</label>
-                            <textarea class="form-control" id="time" name="time" rows="1" placeholder="Prep: |Cook:"
-                            minlength="5" maxlength="20"></textarea>
+                            <label for="prep_time">Prep Time</label>
+                            <textarea class="form-control" id="prep_time" name="prep_time" rows="1" placeholder="Prep Time"
+                            minlength="3" maxlength="20"></textarea>
+                        </div>
+                        <!-- Prep -->
+                        <div class="form-group col-6">
+                            <label for="cook_time">Cooking Time</label>
+                            <textarea class="form-control" id="cook_time" name="cook_time" rows="1" placeholder="Cooking Time"
+                            minlength="3" maxlength="20"></textarea>
                         </div>
                     </div>
 

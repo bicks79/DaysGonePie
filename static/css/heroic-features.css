@@ -5,24 +5,21 @@
  */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
 
+
+/*--------------------------------------------------base.html*/
 body {
     font-family: 'Open+Sans', sans-serif;
     margin: 0px;
     padding: 0px;
 }
-/*--------------------------------------------------Flash Messages*/
-.flash-message {
-    margin-top: 65px;
-    font-family: 'Poppins', sans-serif;
-}
 
-
-/*--------------------------------------------------Navbar*/
+/*--------------------navbar*/
 .navbar {
     background-color: #2e837a;
     border-bottom: 2px solid antiquewhite;
 }
 
+/*brand*/
 .navbar-brand {
     color: antiquewhite;
     font-weight: bold;
@@ -32,6 +29,7 @@ body {
     color: black;
 }
 
+/*links*/
 .nav-link {
     color: antiquewhite;
 }
@@ -40,6 +38,7 @@ body {
     color: black;
 }
 
+/*mobile toggle*/
 .navbar-toggler-icon {
     display: inline;
     color: antiquewhite;
@@ -49,9 +48,22 @@ body {
     text-align: center;
 }
 
-/*--------------------------------------------------Jumbotron Header*/
+/*--------------------flash messages*/
+.flash-message {
+    margin-top: 65px;
+    font-family: 'Poppins', sans-serif;
+}
 
-/*Hero Image*/
+/*--------------------footer*/
+.footer {
+    color: antiquewhite;
+    background-color: #2e837a;
+    border-top: 2px solid antiquewhite;
+}
+
+
+/*--------------------------------------------------jumbotron*/
+/*hero image*/
 .container-jumbotron {
     background-image: url(../images/jumbotron/home.jpg);
     background-image: no-repeat center;
@@ -63,7 +75,7 @@ body {
     height: auto;
 }
 
-/*Opacity*/
+/*opacity*/
 .container-jumbotron::before {
     content: "";
     position: absolute;
@@ -74,7 +86,7 @@ body {
     background-color: rgba(0,0,0,0.5);
 }
 
-/*Jumbotron h1*/
+/*h1*/
 .jumbotron-header {
     font-family: 'Poppins', sans-serif;
     color: antiquewhite;
@@ -84,14 +96,35 @@ body {
 }
 
 
-/*Jumbotron Text Content*/
+/*text*/
 .jumbotron-text {
     color: antiquewhite;
     text-align: justify;
     
 }
 
-/*Sign Up Button*/
+/*--------------------index.html jumbotron*/
+/*signup cta*/
+.signup-cta {
+    text-align: center;
+}
+
+/*--------------------recipes.html jumbotron*/
+/*searchbox*/
+.searchbox-recipes {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/*text input*/
+.form-inline {
+    justify-content: center;
+}
+
+
+/*--------------------------------------------------buttons*/
+/*--------------------index.html*/
+/*standard button*/
 .btn {
     color: antiquewhite;
     background-color: #2e837a;
@@ -99,6 +132,7 @@ body {
     border-radius: 5px;
 }
 
+/*signup button - jumbotron*/
 .btn-signup {
     width: 200px;
     margin-top: 30px;  
@@ -106,156 +140,156 @@ body {
     text-transform: uppercase;
 }
 
-.signup {
-    text-align: center;
-}
-
-/*--------------------------------------------------Page Content - Home Page*/
-/*Features Header*/
-.recipes-header {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    margin: 30px 0px;
-}
-
-/*Page Features*/
-.card-title {
-    font-family: 'Poppins', sans-serif;
-    color: antiquewhite;
-    text-align: center;
-}
-
-.card-img-top {
-    border: 1px solid black;
-    border-bottom: none;
-}
-
-.card-body {
-    background-color: #2e837a;
-    border: 1px solid black;
-    border-bottom: none;
-}
-
-.card-text {
-    color: antiquewhite;
-    text-align: center;
-}
-
-.card-footer {
-    background-color: #2e837a;
-    border: 1px solid black;
-    border-top: none;
-}
-
+/*card button*/
 .btn-recipe {
     width: 200px;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
-
-/*--------------------------------------------------Footer*/
-.footer {
-    color: antiquewhite;
-    background-color: #2e837a;
-    border-top: 2px solid antiquewhite;
-}
-
-/*--------------------------------------------------Jumbotron Recipes*/
-.searchbox-recipes {
-    margin-top: 50px;
-    margin-bottom: 30px;
-}
-
-.form-inline {
-    justify-content: center;
-}
-
+/*--------------------recipes.html*/
+/*search button - jumbotron*/
 .btn-search {
     margin-top: 20px;
 }
 
-/*--------------------------------------------------Page Content - Recipes*/
-/*Recipe CTA*/
-.card-recipe {
-    min-height: 175px;
-}
-
-/*Recipe Card Footer*/
-.recipe-footer {
-    text-align: center;
-}
-
-/*--------------------------------------------------Modal - Recipes*/
-/*Header*/
-.modal-header {
-    background-color: #2e837a;
-    color: antiquewhite;
-    font-family: 'Poppins', sans-serif;
-}
-
-.modal-sub-header {
-    margin-top: 15px;
-}
-
-/*Body*/
-.modal-text {
-    color: black;
-    margin: 10px 0px;
-}
-
-.component,
-.process {
-    padding-left: 20px;
-}
-
-.process-step {
-    text-align: justify;
-}
-
-
-/*Footer*/
-.modal-footer {
-    color: antiquewhite;
-    background-color: #2e837a;
-    border-top: 2px solid antiquewhite;
-}
-
-/*Button*/
+/*modal button*/
 .btn-modal {
     width: 200px;
     text-transform: uppercase;
     margin: 0 auto;  
 }
 
-/*Button Close - Font Awesome Icon*/
+/*modal close - font awesome icon*/
 .modal-close {
     background-color: transparent;
     border: none;
     color: antiquewhite;
 }
+/*--------------------login.html*/
+/*login button*/
+.btn-form {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-/*--------------------------------------------------Features text*/
-/*Feature*/
+.btn-login {
+    text-transform: uppercase;
+}
+
+/*--------------------------------------------------Index.html*/
+/*h2*/
+.recipes-header {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 30px 0px;
+}
+
+/*--------------------card*/
+/*h4*/
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    color: antiquewhite;
+    text-align: center;
+}
+
+/*image*/
+.card-img-top {
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+/*body*/
+.card-body {
+    background-color: #2e837a;
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+/*text*/
+.card-text {
+    color: antiquewhite;
+    text-align: center;
+}
+
+/*footer*/
+.card-footer {
+    background-color: #2e837a;
+    border: 1px solid black;
+    border-top: none;
+}
+
+
+/*--------------------------------------------------recipes.hmtl*/
+/*card body*/
+.card-recipe {
+    min-height: 175px;
+}
+
+/*h4*/
+.card-recipe-header {
+    min-height: 60px;
+}
+
+/*footer*/
+.recipe-footer {
+    text-align: center;
+}
+
+/*--------------------recipe modal*/
+/*h4*/
+.modal-header {
+    background-color: #2e837a;
+    color: antiquewhite;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*text*/
+.modal-text {
+    color: black;
+    margin: 10px 0px;
+}
+
+/*ingredients and method*/
+.component,
+.process {
+    padding-left: 20px;
+}
+
+/*method*/
+.process-step {
+    text-align: justify;
+}
+
+/*footer*/
+.modal-footer {
+    color: antiquewhite;
+    background-color: #2e837a;
+    border-top: 2px solid antiquewhite;
+}
+
+
+/*--------------------------------------------------feature.html*/
+/*text*/
 .feature {
     text-align: justify;
     margin: 0 auto;
 }
 
-/*Feature Logo*/
+/*logo*/
 .feature-img{
     text-align: center;
     margin: 0 auto;
     margin-bottom: 20px;
 }
 
-/*Feature Recipe Image*/
+/*recipe image*/
 .feature-img-recipe {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/*Feature Recipe Header*/
+/*h5*/
 .feature-recipe-header {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
@@ -264,13 +298,16 @@ body {
     margin-top: 15px;
 }
 
+/*method step*/
 .feature-process-step {
     text-align: justify;
     padding-right: 30px;
 }
 
 
-/*--------------------------------------------------Register*/
+/*--------------------------------------------------register.html*/
+
+/*label*/
 .username-header{
     font-family: 'Poppins', sans-serif;
     color: antiquewhite;
@@ -282,6 +319,7 @@ body {
     color: antiquewhite;
 }
 
+/*h6, strong*/
 .login-redirect{
     text-align: center;
     color: antiquewhite;
@@ -290,17 +328,19 @@ body {
 
 
 /*--------------------------------------------------Login*/
-.login-header {
-    text-align: center;
-    margin: 80px 0px 40px;
-}
-
+/*label*/
 .username-header,
 .password-header {
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
 
+.form-username,
+.form-password{
+    margin-bottom: 10px;
+}
+
+/*text*/
 .login-text {
     text-align: center;
 }
@@ -309,19 +349,6 @@ body {
     text-align: center;
 }
 
-.form-username,
-.form-password{
-    margin-bottom: 10px;
-}
-
-.btn-form {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.btn-login {
-    text-transform: uppercase;
-}
 
 /*--------------------------------------------------Profile*/
 .profile-header {
@@ -340,6 +367,12 @@ body {
 input[type=radio]{
     display:none;
 }
+
+/*New Recipe Modal*/
+.prep-time {
+    padding-right: none;
+}
+
 
 .btn-submit {
     margin: 0 auto;
@@ -443,7 +476,7 @@ input[type=radio]{
     width: 300px;
 }
 
-.signup {
+.signup-cta {
     text-align: left;
     margin-top: 50px;
     margin-left: 35px;
@@ -469,7 +502,11 @@ input[type=radio]{
     height: 91vh;
 }
 
-/*login*/
+/*--------------------Index.html*/
+
+
+
+/*--------------------login.html*/
 .login-text {
     text-align: left;
 }

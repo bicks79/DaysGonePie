@@ -122,7 +122,9 @@ def profile(username):
             "serves": request.form.get("serves"),
             "time": request.form.get("time"),
             "desc": request.form.get("desc"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "components": request.form.get("components"),
+            "process": request.form.get("process")
             }
 
         mongo.db.recipes.insert_one(recipe)

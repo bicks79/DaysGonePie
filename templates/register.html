@@ -3,33 +3,44 @@
 <!-- Jumbotron Register -->
 <div class="container-fluid container-jumbotron container-register">
 
+    <!-- Jumbotron Header -->
     <div class="row">
-        <div class="col-12 col-md-m6 my-4">
+        <div class="col-12 col-md-6 my-4">
             <h1 class="jumbotron-header jumbotron-register"><i class="fas fa-user-plus"></i>  Register</h1>
-        </div>  
-        <div class="col-12 jumbotron-content">
-            <p class="jumbotron-text col-12 col-lg-6">
-                Registering for Days Gone Pie not only gives you access to all the great recipes we have,
-                it also allows you to share your own fabulous bakes with the community, so they can share 
-                your amazing creation with their friends and family.  It only takes a minute and then you
-                can get back to the important things in life, baking! Already a member? 
-            </p>
-            <h6 class="login-redirect"><a href="{{ url_for('login') }}"><strong class="login-redirect">Click Here!</strong></a></h6>
         </div>
-        <div class="row">
-            <form method="POST" action="{{ url_for('register') }}">
-                <div class="mb-3">
-                    <label for="username" class="col-10 offset-1 offset-md-2 username-header"><i class="fas fa-user-tag"></i>  username</label>
-                    <input type="username" class="col-10 offset-1 offset-md-2 form-username" id="username" name="username" placeholder="username" aria-describedby="usernameHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="col-10 offset-1 offset-md-2 offset-lg-2 password-header"><i class="fas fa-key"></i>  Password</label>
-                    <input type="password" class="col-10 offset-1 offset-md-2 form-password" id="password" name="password" placeholder="password">
-                </div>
-                <div class="btn-form col-12 offset-md-2">
-                    <button type="submit" class="btn btn-login">Sign Up!</button>
-                </div>
-            </form>
+    </div>
+
+    <!-- Jumbotron Text -->
+    <div class="row">
+        <div class="jumbotron-content">
+            <p class="jumbotron-text col-12 col-md-10 col-lg-6">
+                Registering for Days Gone Pie allows you to share your fabulous bakes with the community.
+                It only takes a minute, so why not sign up now?
+            </p>
+        </div>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="row">
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="col-12 mt-2">
+                <label for="username" class="offset-1 username-header"><i class="fas fa-user-tag"></i>  username</label>
+                <input type="username" class="col-10 offset-1 form-username" id="username" name="username" placeholder="username" aria-describedby="usernameHelp">
+            </div>
+            <div class="col-12 my-4">
+                <label for="password" class="offset-1 password-header"><i class="fas fa-key"></i>  Password</label>
+                <input type="password" class="col-10 offset-1 form-password" id="password" name="password" placeholder="password">
+            </div>
+            <div class="btn-form col-12 offset-md-1">
+                <button type="submit" class="btn btn-login">Sign Up!</button>
+            </div>
+        </form>
+    </div>
+
+        <!-- Login Redirect -->
+    <div class="row">
+        <div class="col-12 col-md-6 my-2">
+            <h6 class="login-redirect"><a href="{{ url_for('login') }}" class="jumbotron-text login-redirect">Already a member? <strong class="login-redirect">Click Here!</strong></a></h6>
         </div>
     </div>
 </div>

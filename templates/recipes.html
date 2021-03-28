@@ -50,9 +50,9 @@
 
                 <!-- Recipe Card Body -->
                 <div class="card-body card-recipe">
-                    <h4 class="card-title">{{ recipe.recipe_title }}</h4>
+                    <h4 class="card-title card-recipe-header">{{ recipe.recipe_title }}</h4>
                     <p class="card-text">{{ recipe.serves }}</p>
-                    <p class="card-text">{{ recipe.time }}</p>
+                    <p class="card-text">Prep: {{ recipe.prep_time }} | Cook: {{ recipe.cook_time }}</p>
                 </div>
                 <div class="card-footer recipe-footer">
                     <button type="button" class="btn btn-sm btn-recipe" data-toggle="modal" data-target="#a{{ recipe._id }}">
