@@ -25,7 +25,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('recipes') }}">Recipes</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('feature') }}">Feature</a></li>
                 {% if session.user %}
-                <li class="nav-item"><a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('profile', username=session) }}">Profile</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}
                 <li class="nav-item"><a class="nav-link" href="{{ url_for('register') }}">Register</a></li>

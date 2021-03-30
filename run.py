@@ -102,6 +102,8 @@ def login():
 # profile.html route decorator
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    ingredients = list(mongo.db.ingredients.find())
+    method = list(mongo.db.method.find())
     categories = mongo.db.categories.find().sort("categories", 1)
     # adding a new recipe to mongodb
     if request.method == "POST":
@@ -114,22 +116,39 @@ def profile(username):
             "desc": request.form.get("desc"),
             "created_by": session["user"]
             }
+        ingredients = {
+            "category_name": request.form.get("category_name"),
+            "recipe_title": request.form.get("recipe_title"),
+            "components": request.form.get("components").split(',')
+            }
+        method = {
+            "category_name": request.form.get("category_name"),
+            "recipe_title": request.form.get("recipe_title"),
+            "process": request.form.get("process").split(',')
+            }
 
         mongo.db.recipes.insert_one(recipe)
+        mongo.db.ingredients.insert_one(ingredients)
+        mongo.db.method.insert_one(method)
         flash("Recipe added to your kitchen")
         return redirect(url_for('profile', username=username))
 
     # return username from mongodb
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+
+    # finding recipe by session user
     recipes = list(mongo.db.recipes.find({'created_by': username}))
     if session["user"]:
         return render_template(
             "profile.html",
             username=username,
             recipes=recipes,
-            categories=categories,
+            ingredients=ingredients,
+            method=method,
+            categories=categories
             )
+
     return redirect(url_for('login'))
 
 

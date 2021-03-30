@@ -179,6 +179,14 @@ body {
     text-transform: uppercase;
 }
 
+.newRecipe-trigger {
+    text-align: center;
+}
+
+.btn-newRecipe{
+    margin-top: 15px;
+}
+
 /*--------------------------------------------------Index.html*/
 /*h2*/
 .recipes-header {
@@ -363,11 +371,6 @@ body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
     margin: 15px 0px 30px;
-}
-
-/*Recipe CRUD buttons*/
-input[type=radio]{
-    display:none;
 }
 
 /*New Recipe Modal*/
