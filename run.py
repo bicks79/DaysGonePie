@@ -103,34 +103,33 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     categories = mongo.db.categories.find().sort("categories", 1)
-
-    # return username from mongodb
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    if session["user"]:
-        return render_template(
-            "profile.html",
-            username=username,
-            categories=categories
-            )
-
     # adding a new recipe to mongodb
     if request.method == "POST":
         recipe = {
             "category_name": request.form.get("category_name"),
             "recipe_title": request.form.get("recipe_title"),
             "serves": request.form.get("serves"),
-            "time": request.form.get("time"),
+            "prep_time": request.form.get("prep_time"),
+            "cook_time": request.form.get("cook_time"),
             "desc": request.form.get("desc"),
-            "created_by": session["user"],
-            "components": request.form.get("components"),
-            "process": request.form.get("process")
+            "created_by": session["user"]
             }
 
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe added to your kitchen")
-        return redirect(url_for('profile'))
+        return redirect(url_for('profile', username=username))
 
+    # return username from mongodb
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    recipes = list(mongo.db.recipes.find({'created_by': username}))
+    if session["user"]:
+        return render_template(
+            "profile.html",
+            username=username,
+            recipes=recipes,
+            categories=categories,
+            )
     return redirect(url_for('login'))
 
 

@@ -9,6 +9,41 @@
     </div>
 </div>
 
+<div class="container container-fluid container-user-recipes">
+    <!-- Recipe Card -->
+    <div class="row">
+
+        {% for recipe in recipes %}
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+                    
+            <!--Recipe Card Images-->
+            {% for image in recipeImage %}
+                {% if recipe.recipe_title == image.recipe_title %}
+                <img class="card-img-top" src="{{ image.recipeImage }}" alt="recipe_image">
+                {% endif %}
+            {% endfor %} 
+
+                <!-- Recipe Card Body -->
+                <div class="card-body card-recipe">
+                    <h4 class="card-title card-recipe-header">{{ recipe.recipe_title }}</h4>
+                    <p class="card-text">{{ recipe.serves }}</p>
+                    <p class="card-text">Prep: {{ recipe.prep_time }} | Cook: {{ recipe.cook_time }}</p>
+                </div>
+                <div class="card-footer recipe-footer">
+                    <button type="button" class="btn btn-sm btn-recipe" data-toggle="modal" data-target="">
+                        Edit Recipe
+                    </button>
+                    <button type="button" class="btn btn-sm btn-recipe" data-toggle="modal" data-target="">
+                        Delete Recipe
+                    </button>
+                </div>
+            </div>
+        </div>        
+        {% endfor %}
+    </div>
+</div>
+
 <!-- User Recipe CRUD -->
 <div class="container container-fluid container-crud">
     <div class="row">
@@ -85,7 +120,7 @@
                             <textarea class="form-control" id="prep_time" name="prep_time" rows="1" placeholder="Prep Time"
                             minlength="3" maxlength="20"></textarea>
                         </div>
-                        <!-- Prep -->
+                        <!-- Cook -->
                         <div class="form-group col-6">
                             <label for="cook_time">Cooking Time</label>
                             <textarea class="form-control" id="cook_time" name="cook_time" rows="1" placeholder="Cooking Time"
@@ -112,7 +147,7 @@
                             minlength="5"></textarea>
                         </div>
                     </div>
-
+                        
                     <!-- Method -->
                     <div class="row">
                         <div class="form-group col-12">
