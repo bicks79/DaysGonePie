@@ -45,8 +45,8 @@
                             class="btn btn-sm btn-recipe" data-toggle="modal" data-target="#a{{ recipe._id}}">
                             Edit Recipe
                         </a>
-                        <a href="#" 
-                            class="btn btn-sm btn-recipe" data-toggle="modal" data-target="#a{{ recipe._id}}">
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" 
+                            class="btn btn-sm btn-recipe">
                             Delete Recipe
                         </a>
                         {% endif %}

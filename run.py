@@ -43,6 +43,13 @@ def recipes():
         recipeImage=data)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("recipes.html", recipes=recipes)
+
+
 @app.route("/feature")  # feature.html route decorator
 def feature():
     with open("data/feature.json", "r") as json_data:
@@ -183,10 +190,18 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("categories", 1)
     return redirect(url_for(
-        "profile",
+        'profile',
         recipe=recipe,
         categories=categories,
         username=session["user"]))
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    # delete user recipe
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("The recipe has been removed from your kitchen.")
+    return redirect(url_for('profile', username=session["user"]))
 
 
 @app.route("/logout")

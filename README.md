@@ -7,7 +7,7 @@
 
 ## **Table of Contents**
 ---
-### **1 | UX** 
+## **1 | UX** 
 - Project Goals
 - User Goals
 - Developer Goals
@@ -15,21 +15,21 @@
 - Design Choices
 - Wireframes
 ---
-### **2 | Features**
+## **2 | Features**
 - Existing Features
 - Features Left to Implement
 ---
-### **3 | Technologies Used**
+## **3 | Technologies Used**
 - Front End
 - Back End
 ---
-### **4 | Testing**
+## **4 | Testing**
 ---
-### **5 | Deployment**
+## **5 | Deployment**
 - How to Deploy to a Cloud Based Server
 - How to Deploy Locally
 ---
-### **6 | Credits**
+## **6 | Credits**
 - Content
 - Media
 - Code
@@ -37,10 +37,10 @@
 ---
 ## **1 | UX**
 ---
-#### **Project Goals**
+### **Project Goals**
 The purpose of Days Gone Pie is to create an attractive, functional, fullstack website for baking enthusiasts of all skill levels and abilities.
 
-#### **User Goals**
+### **User Goals**
 *Days Gone Pie is targeted at baking enthusiasts who want to:*
 - Find new / specific recipes
 - Learn new skills
@@ -53,7 +53,7 @@ The purpose of Days Gone Pie is to create an attractive, functional, fullstack w
 - Giving the user the bility to share their recipes with the online community
 -Review shared recipes to help inform other users
 
-#### **Developer Goals**
+### **Developer Goals**
 *As the developer of Days Gone Pie, the goal is to:*
 - Exhibit a professional looking front end site using HTML, CSS and JavaScript
 - Design, develop and implement a back end application using Python
@@ -61,7 +61,7 @@ The purpose of Days Gone Pie is to create an attractive, functional, fullstack w
 - Successfully deploy a full stack site to a cloud platform such as Heroku
 - Prectise defensive design by identifying security features.
 
-#### **User Stories**
+### **User Stories**
 *As a user, interested in baking, I want:*
 - The ability to search for and easily navigate to a recipes
 - To know how many people the recipe serves and how long it will take to make
@@ -75,7 +75,7 @@ The purpose of Days Gone Pie is to create an attractive, functional, fullstack w
 - To share my recipes with the community
 - To be able to update or delete my recipes
 
-#### **Design Choices**
+### **Design Choices**
 Days Gone Pies was designed to look clean, modern and attractive to the user.
 It needed to accentuate the theme and content of the website without overpowering the
 user visually.  I felt it needed to replcate the structure of a cake, be light, airy and tempt
@@ -104,6 +104,57 @@ providing a simpler user experience. By providing a visual aid to support the te
 - [Username](https://fontawesome.com/icons/user-tag?style=solid) | User registration / login
 - [Password](https://fontawesome.com/icons/key?style=solid) | User password
 
-#### **Colours**
+#### **Colors**
 The theme of the website needed to be light and airy, just like a cake sponge.
-Pastel colours seemed to be the most logical approach and I decided that a 
+Pastel colors seemed to be the most logical approach. I used [HTML Colorcodes](https://htmlcolorcodes.com/color-picker/)
+to help choose the right shade.
+
+![color](../DaysGonePie/static/readme.md/readme-images/color_picker.png)
+
+To allow the user to read the content properly required a conforming text contrast.
+Even though the test failed for smaller writing, I was happy to continue with the selection
+as my headers and bolder text were greater in number and deemed an accepltable trade off.
+
+![contrast](../DaysGonePie/static/readme.md/readme-images/contrast.png)
+
+
+For buttons and call to cation functions, I needed ensure the user could see that their
+input was being accounted for. I used a black text on the same background to highligh the
+change in cursor activity on the buttons. This passed with a higher success rate.
+
+![contrast_black](../DaysGonePie/static/readme.md/readme-images/contrast_black.png)
+
+
+#### **Styling**
+Styling the website was a simple task. Keep it tidy, keep it simple, keep it clean.
+The design was very repetetive and gives the user the ability to learn the layout and functionsvery easily.
+The wireframes will testify to this later and allowed me to adhere to the initial ideas in my concepts.
+Each page is consistently repetetive and does not distract the user away from the content with too much verve.
+
+#### **Backgrounds**
+Initially, each page was going to have it's own background and theme according to content.
+When putting this together it made the website feel like a different site for each page and considered this to be poor UX.
+The background image on each page is now identical and gives a visual representation of what the site is about.
+
+![jumbotron_hero_image](../DaysGonePie/static/images/jumbotron/home.jpg)
+
+
+To improve UX and help the user identify their pathway quicker, I used specific images on each card to clearly define the category status.
+
+#### **Bread** ![Bread](../DaysGonePie/static/images/recipe-categories/bread.png)
+
+#### **Cake** ![Cake](../DaysGonePie/static/images/recipe-categories/cake.png)
+
+#### **Dessert** ![Dessert](../DaysGonePie/static/images/recipe-categories/dessert.png)
+
+#### **Pastry** ![Pastry](../DaysGonePie/static/images/recipe-categories/pastry.png)
+
+
+These symbolise the core structure of the website, and help to guide the user down thier designated filepath. 
+As the site gains more users and the database expands, more categories can be added and each new category will
+follow the same structure and design principle.
+
+
+#### **Card Images
+As with the categories, each recipe card will aim to hold an image of what the finished recipe should look like
+when complete.  At present, there are eight recipe images stored to show what

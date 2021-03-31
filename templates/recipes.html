@@ -17,8 +17,8 @@
                 and start sharing.
             </p>
             <div class="searchbox-recipes">
-                <form class="form-inline col-12">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Find a recipe" aria-label="Search">
+                <form class="form-inline col-12" action="{{ url_for('search') }}" method="POST">
+                    <input id="query" name="query" class="form-control mr-sm-2" type="text" minlength="3" placeholder="Find a recipe" aria-label="Search">
                     <button class="btn btn-search" type="submit">Search</button>
                 </form>
             </div>
