@@ -40,12 +40,16 @@
                     <p class="card-text">Prep: {{ recipe.prep_time }} | Cook: {{ recipe.cook_time }}</p>
                 </div>
                 <div class="card-footer recipe-footer">
-                    <button type="button" class="btn btn-sm btn-recipe" data-toggle="modal" data-target="#a{{ recipe._id }}">
-                        Edit Recipe
-                    </button>
-                    <button type="button" class="btn btn-sm btn-recipe" data-toggle="modal" data-target="">
-                        Delete Recipe
-                    </button>
+                        {% if session.user|lower() == recipe.created_by|lower() %}
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" 
+                            class="btn btn-sm btn-recipe" data-toggle="modal" data-target="#a{{ recipe._id}}">
+                            Edit Recipe
+                        </a>
+                        <a href="#" 
+                            class="btn btn-sm btn-recipe" data-toggle="modal" data-target="#a{{ recipe._id}}">
+                            Delete Recipe
+                        </a>
+                        {% endif %}
                 </div>
             </div>
         </div>        
@@ -65,7 +69,7 @@
             <div class="modal-body">
 
                 <!-- Add New Recipe Form -->
-                <form method="POST" action="{{ url_for ('profile', username=username) }}">
+                <form method="POST" action="{{ url_for('profile', username=username) }}">
 
                     <!-- Recipe Title -->
                     <div class="row">
@@ -133,8 +137,7 @@
                         <div class="form-group col-12">
                             <i class="fas fa-list-ul"></i>
                             <label for="components"> Ingredients</label>
-                            <textarea class="form-control" id="components" name="components" rows="10" placeholder="What do you need?"
-                            minlength="5"></textarea>
+                            <textarea class="form-control" id="components" name="components" rows="10" minlength="5" placeholder="To allow us to get your recipe perfect, please separate each item  by a comma(,) and start a new line."></textarea>
                         </div>
                     </div>
                         
@@ -143,7 +146,7 @@
                         <div class="form-group col-12">
                             <i class="fas fa-list-ol"></i>
                             <label for="process"> Method</label>
-                            <textarea class="form-control" id="process" name="process" rows="20" placeholder="How do I make it?"
+                            <textarea class="form-control" id="process" name="process" rows="20" placeholder="To allow us to get your recipe perfect, please separate each step by a comma(,) and start a new line."
                             minlength="5"></textarea>
                         </div>
                     </div>
@@ -163,112 +166,121 @@
 
 <!--CRUD Edit Recipe Modal -->
 {% for recipe in recipes %}
-<div class="modal fade" id="a{{ recipe._id }}" tabindex="-1" aria-labelledby="editRecipeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editRecipeModalLabel">Edit Recipe</h5>
-                <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></button> 
-            </div>
-            <div class="modal-body">
-                
-                <!-- Edit Recipe Form -->
-                <form method="POST" action="{{ url_for ('profile', username=username) }}">
-
-                    <!-- Recipe Title -->
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <i class="fas fa-book-open"></i>
-                            <label for="edit_recipe_title">Recipe Title</label>
-                            <input type="text" class="form-control" id="edit_recipe_title" name="recipe_title" 
-                            placeholder="{{ recipe.recipe_title }}" minlength="5" maxlength="50" reqiured>
+    <div class="modal fade" id="a{{ recipe._id }}" tabindex="-1" aria-labelledby="editRecipeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editRecipeModalLabel">Edit Recipe</h5>
+                    <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close"><i
+                            class="far fa-times-circle"></i></button>
+                </div>
+                <div class="modal-body">
+    
+                    <!-- Edit Recipe Form -->
+                    <form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+    
+                        <!-- Recipe Title -->
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <i class="fas fa-book-open"></i>
+                                <label for="edit_recipe_title">Recipe Title</label>
+                                <input type="text" class="form-control" id="edit_recipe_title" name="recipe_title"
+                                    placeholder="{{ recipe.recipe_title }}" minlength="5" maxlength="50" reqiured>
+                            </div>
                         </div>
-                    </div>
-        
-                    <!-- Recipe Category -->
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <i class="far fa-folder-open"></i>
-                            <label for="edit_category_name">Recipe Category</label>
-                            <select class="form-control" id="edit_category_name" name="category_name">
-                                <option value="" disabled selected>Select a Category</option>
-                                {% for category in categories %}
-                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+    
+                        <!-- Recipe Category -->
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <i class="far fa-folder-open"></i>
+                                <label for="edit_category_name">Recipe Category</label>
+                                <select class="form-control" id="edit_category_name" name="category_name">
+                                    <option value="" disabled>Select a Category</option>
+                                    {% for category in categories %}
+                                        {% if category.category_name == recipe.recipe_name %}
+                                            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                                        {% else %}
+                                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+    
+                        <!-- Servings -->
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <i class="fas fa-chart-pie"></i>
+                                <label for="serves">Servings</label>
+                                <textarea class="form-control" id="edit_serves" name="serves" rows="1" minlength="5"
+                                    maxlength="20">{{ recipe.serves }}</textarea>
+                            </div>
+                        </div>
+    
+                        <!-- Timings -->
+                        <div class="row">
+                            <!-- Prep -->
+                            <div class="form-group col-6">
+                                <i class="far fa-clock"></i>
+                                <label for="prep_time">Prep Time</label>
+                                <textarea class="form-control" id="edit_prep_time" name="prep_time" rows="1" minlength="3"
+                                    maxlength="20">{{ recipe.prep_time }}</textarea>
+                            </div>
+                            <!-- Cook -->
+                            <div class="form-group col-6">
+                                <label for="cook_time">Cooking Time</label>
+                                <textarea class="form-control" id="edit_cook_time" name="cook_time" rows="1" minlength="3"
+                                    maxlength="20">{{ recipe.cook_time }}</textarea>
+                            </div>
+                        </div>
+    
+                        <!-- Description -->
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <i class="far fa-file-alt"></i>
+                                <label for="desc">Recipe Description</label>
+                                <textarea class="form-control" id="edit_desc" name="desc" rows="2" minlength="5"
+                                    maxlength="50">{{ recipe.desc }}</textarea>
+                            </div>
+                        </div>
+    
+                        <!-- Ingredients -->
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <i class="fas fa-list-ul"></i>
+                                <label for="components"> Ingredients</label>
+                                {% for item in ingredients %}
+                                {% if recipe.recipe_title == item.recipe_title %}
+                                <textarea class="form-control" id="edit_components" name="components" rows="10"
+                                    minlength="5">{{ item.component }}</textarea>
+                                {% endif %}
                                 {% endfor %}
-                            </select>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Servings -->
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <i class="fas fa-chart-pie"></i>
-                            <label for="serves">Servings</label>
-                            <textarea class="form-control" id="edit_serves" name="serves" rows="1" 
-                            minlength="5" maxlength="20">{{ recipe.serves }}</textarea>
+    
+                        <!-- Method -->
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <i class="fas fa-list-ol"></i>
+                                <label for="process"> Method</label>
+                                <textarea class="form-control" id="edit_process" name="process" rows="20"
+                                    minlength="5"></textarea>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Timings -->
-                    <div class="row">
-                        <!-- Prep -->
-                        <div class="form-group col-6">
-                            <i class="far fa-clock"></i>
-                            <label for="prep_time">Prep Time</label>
-                            <textarea class="form-control" id="edit_prep_time" name="prep_time" rows="1"
-                            minlength="3" maxlength="20">{{ recipe.prep_time }}</textarea>
+    
+                        <!-- Submit Button -->
+                        <div class="row">
+                            <button type="submit" class="btn btn-recipe btn-submit"
+                                action="{{ url_for('profile', username=username, recipe_id=recipe._id) }}">Edit Recipe</button>
                         </div>
-                        <!-- Cook -->
-                        <div class="form-group col-6">
-                            <label for="cook_time">Cooking Time</label>
-                            <textarea class="form-control" id="edit_cook_time" name="cook_time" rows="1"
-                            minlength="3" maxlength="20">{{ recipe.cook_time }}</textarea>
-                        </div>
-                    </div>
-
-                    <!-- Description -->
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <i class="far fa-file-alt"></i>
-                            <label for="desc">Recipe Description</label>
-                            <textarea class="form-control" id="edit_desc" name="desc" rows="2"
-                            minlength="5" maxlength="50">{{ recipe.desc }}</textarea>
-                        </div>
-                    </div>
-
-                    <!-- Ingredients -->
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <i class="fas fa-list-ul"></i>
-                            <label for="components"> Ingredients</label>
-                            <textarea class="form-control" id="edit_components" name="components" rows="10" placeholder="What do you need?"
-                            minlength="5"></textarea>
-                        </div>
-                    </div>
-                        
-                    <!-- Method -->
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <i class="fas fa-list-ol"></i>
-                            <label for="process"> Method</label>
-                            <textarea class="form-control" id="edit_process" name="process" rows="20" placeholder="How do I make it?"
-                            minlength="5"></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="row">
-                        <button type="submit" class="btn btn-recipe btn-submit" 
-                            action="{{ url_for('profile', username=username) }}">Edit Recipe</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-modal" data-dismiss="modal">Close</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-modal" data-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endfor %}
 
     

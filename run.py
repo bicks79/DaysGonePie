@@ -152,6 +152,43 @@ def profile(username):
     return redirect(url_for('login'))
 
 
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "recipe_title": request.form.get("recipe_title"),
+            "serves": request.form.get("serves"),
+            "prep_time": request.form.get("prep_time"),
+            "cook_time": request.form.get("cook_time"),
+            "desc": request.form.get("desc"),
+            "created_by": session["user"]
+            }
+        ingredients = {
+            "category_name": request.form.get("category_name"),
+            "recipe_title": request.form.get("recipe_title"),
+            "components": request.form.get("components").split(',')
+            }
+        method = {
+            "category_name": request.form.get("category_name"),
+            "recipe_title": request.form.get("recipe_title"),
+            "process": request.form.get("process").split(',')
+            }
+
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        mongo.db.ingredients.insert_one(ingredients)
+        mongo.db.method.insert_one(method)
+        flash("Your recipe has been altered")
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("categories", 1)
+    return redirect(url_for(
+        "profile",
+        recipe=recipe,
+        categories=categories,
+        username=session["user"]))
+
+
 @app.route("/logout")
 def logout():
     # remove user from cookies
